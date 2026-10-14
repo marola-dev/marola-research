@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 256" width="800" height="256" role="img">
+<title>Reliability is what makes it cheap</title>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b45309"/></marker><style>
+text{font-family:"DejaVu Sans",sans-serif;fill:#1f2937}
+.h{font-weight:bold;font-size:14px}.s{font-size:12px}.xs{font-size:11px;fill:#475569}.ttl{font-weight:bold;font-size:16px;fill:#0f3d4a}
+.box{fill:#f8fafc;stroke:#334155;stroke-width:1.4}.sea{fill:#ecfeff;stroke:#0e7490;stroke-width:1.6}.deep{fill:#0e7490;stroke:none}
+.open{fill:#fffbeb;stroke:#b45309;stroke-width:1.4;stroke-dasharray:6 4}.ot{fill:#92400e}
+.ln{stroke:#334155;stroke-width:1.4;fill:none;marker-end:url(#a)}.lo{stroke:#b45309;stroke-width:1.4;fill:none;stroke-dasharray:6 4;marker-end:url(#o)}
+.grid{stroke:#cbd5e1;stroke-width:1}
+</style></defs>
+<rect width="800" height="256" fill="#ffffff"/>
+<text x="400" y="24" class="ttl" text-anchor="middle">Reliability is what makes it cheap</text>
+<rect x="20" y="44" width="236" height="118" rx="8" class="box"/>
+<text x="34" y="68" class="h" text-anchor="start">1. A Spot VM is taken back</text>
+<text x="34" y="96" class="s" text-anchor="start">GCP may stop a Spot VM</text><text x="34" y="114" class="s" text-anchor="start">“at any time”;</text><text x="34" y="132" class="s" text-anchor="start">it costs less for that</text>
+<path d="M258,103 L280,103" class="ln"/>
+<rect x="282" y="44" width="236" height="118" rx="8" class="sea"/>
+<text x="296" y="68" class="h" text-anchor="start">2. The cluster decides</text>
+<text x="296" y="96" class="s" text-anchor="start">the split brain resolver</text><text x="296" y="114" class="s" text-anchor="start">downs the lost node; the</text><text x="296" y="132" class="s" text-anchor="start">points move to the others</text>
+<path d="M520,103 L542,103" class="ln"/>
+<rect x="544" y="44" width="236" height="118" rx="8" class="sea"/>
+<text x="558" y="68" class="h" text-anchor="start">3. The actor replays</text>
+<text x="558" y="96" class="s" text-anchor="start">its state is its events,</text><text x="558" y="114" class="s" text-anchor="start">replayed on the new node;</text><text x="558" y="132" class="s" text-anchor="start">no score is lost</text>
+<rect x="20" y="180" width="760" height="64" rx="8" class="box"/>
+<text x="36" y="204" class="s" text-anchor="start">Survive the loss of any node first; then buy the nodes that can be taken away.</text><text x="36" y="226" class="s" text-anchor="start">How many nodes, which resolver strategy and the budget in money are not chosen ⚠</text>
+</svg>

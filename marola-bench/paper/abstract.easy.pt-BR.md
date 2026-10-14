@@ -1,7 +1,7 @@
 ---
 title: "Resumo, versão fácil: marola-bench"
 status: draft
-date: 2026-10-13
+date: 2026-10-14
 related: [paper.md]
 ---
 
@@ -10,7 +10,7 @@ related: [paper.md]
 > **Esta é a versão fácil, em português, do resumo (*abstract*) de [paper.md](paper.md).**
 >
 > - **Vale o original.** Se este texto e o original discordarem, vale o original, em inglês.
-> - **Feita a partir de:** o resumo de 13 de outubro de 2026.
+> - **Feita a partir de:** o resumo de 14 de outubro de 2026.
 > - **Para quem é:** quem quer entender a ideia sem ser da área.
 > - **O que ficou de fora:** nada. Cada frase do resumo está aqui, na mesma ordem.
 > - **O que entrou a mais:** a explicação de cada palavra difícil, na hora em que ela aparece. As
@@ -28,7 +28,7 @@ related: [paper.md]
 
 **5. Quem faz o trabalho.** Os pontos de observação (uma boia, uma estação) são cadastrados à mão, por uma pessoa. Para cada ponto existe um ator: um pequeno programa que cuida só daquele ponto. Ele pergunta aos previsores e registra as notas.
 
-**6. As seis regras do dono.** O texto traz seis regras fixas. Cinco são para a construção: usar Apache Pekko e Scala 3 (as ferramentas de programação), rodar na nuvem do Google (GCP), descrever a infraestrutura com Besom, morar neste repositório, e ter um conjunto de máquinas barato e confiável. Uma é sobre os direitos: todos reservados. O texto também diz onde essas regras mudam o projeto que já estava aceito, o MIP-0091.
+**6. As sete regras do dono.** O texto traz sete regras fixas. Cinco são para a construção: usar Apache Pekko e Scala 3 (as ferramentas de programação), rodar na nuvem do Google (GCP), descrever a infraestrutura com Besom, morar neste repositório, e ter um conjunto de máquinas barato e confiável. Uma é sobre os direitos: todos reservados. Uma é sobre o assistente que escreve o código: o Ponytail 5, um *plugin* (um complemento) do Claude Code. O texto também diz onde essas regras mudam o projeto que já estava aceito, o MIP-0091.
 
 **7. O que ainda não existe.** O texto não traz resultado nenhum. Nenhuma previsão recebeu nota ainda, e nada foi construído.
 <!-- easy-abstract:end -->

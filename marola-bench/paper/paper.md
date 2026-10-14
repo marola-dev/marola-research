@@ -12,13 +12,14 @@ abstract: |
   WeatherBench, WeatherBench 2 and Operational WeatherBench and changes those three things. The
   bench is defined as the set of score series: the scores of any forecaster against the
   observations of a point, in order of time. Observation points are added by hand, and one actor
-  for each point asks the forecasters and registers the scores. The paper states six hard rules
-  of the owner: five for the implementation (Apache Pekko and Scala 3, GCP, Besom, a home in
-  this repository, a cheap and reliable cluster) and one for its terms (all rights reserved).
+  for each point asks the forecasters and registers the scores. The paper states seven hard
+  rules of the owner: five for the implementation (Apache Pekko and Scala 3, GCP, Besom, a home
+  in this repository, a cheap and reliable cluster), one for its terms (all rights reserved) and
+  one for its coding assistant (Ponytail 5, a Claude Code plugin).
   It says where they change the accepted design, MIP-0091. It reports no result: no forecast
   has been scored, and nothing has been built.
 version: "v0 (a proposal, not peer reviewed; no score has been computed)"
-date: 2026-10-13
+date: 2026-10-14
 related: [REFERENCES.md, refs.bib, ../README.md, ../../.claude/skills/ouro-paper/SKILL.md, "https://github.com/marola-dev/marola/blob/cf7bd4f/docs/MIPs/MIP-0091-marola-forecaster-architecture.md"]
 style: research
 ---
@@ -48,7 +49,7 @@ style: research
 
 ## Hard rules
 
-> These six are the owner's rules (Hoffmann, 13 October 2026). They are not proposals, and they
+> These seven are the owner's rules (Hoffmann, 13 October 2026; rule 7, 14 October 2026). They are not proposals, and they
 > are not open to an agent's choice. Work on marola-bench that breaks one is wrong, even when it
 > works.
 >
@@ -62,8 +63,10 @@ style: research
 > 6. **marola-bench is all rights reserved, and its credit is the author's.** It is not shared
 >    outside the organisations marola-dev and ouroboric-dev without his acknowledgement. Whoever
 >    uses it, a person or an agent, cites it.
+> 7. **Ponytail 5 is adopted as the coding assistant, a Claude Code plugin.**
 
-What each rule meets today, read on 13 October 2026. Five of the six change the accepted
+What each rule meets today, read on 13 October 2026 (rule 7 on 14 October). Five of the seven
+change the accepted
 design, MIP-0091. By marola's own rule, a change like that is written in a MIP first. Until
 MIP-0091 is amended or a new MIP is accepted, this paper states the rules and the MIP states the
 older design. The rules are the owner's later word, so the rules win; the list below is what the
@@ -134,6 +137,25 @@ next MIP must settle.
   design says, or under these terms, is for the MIP and for the owner.
 - What rule 6 does not undo: this text was under CC BY 4.0 until 13 October 2026, and a copy
   taken then keeps that licence.
+
+**Rule 7: Ponytail 5.**
+
+- Ponytail is a plugin for Claude Code by Dietrich Gebert, under MIT [@ponytail] **(v)**. Its
+  skill calls itself "Lazy senior dev mode: the smallest change that fully solves the task"
+  **(v)**. Its release of 14 October 2026 here is v5.2.0, at commit `2961b52` **(v)**.
+- This repository enables it for every session: `.claude/settings.json` sets
+  `ponytail@ponytail` to `true` **(v)**. That file names no version, so "5" is kept by the rule,
+  not by the file. Whether a version 6 is taken is the owner's decision.
+- It agrees with rule 2, which already says "developed with Claude Code". It agrees with
+  MIP-0091, which says "Written by: Hoffmann, with Claude Code" and names no plugin **(MIP
+  header)**.
+- It does not settle rule 2's SDD framework. Its skill file is about the size of a change: it
+  takes the first option that works, from "does it need to exist?" to "the minimum code that
+  works" **(v)**. The word "spec" is not in it **(v)**. This is the writer's reading: Ponytail
+  decides how small a change is, and an SDD framework decides what the change is for.
+- Its page reports "-53% code, -41% time, -26% cost, -45% tokens", measured by its author on 39
+  tasks in Claude Code **(v)**. These are its author's numbers. Nobody has measured them on
+  marola-bench, which has no code yet **⚠**.
 
 ## 1. Summary
 
@@ -432,7 +454,7 @@ From the design's own lists **(MIP §8, §11, "Not checked")**:
 
 From this paper:
 
-- **What the six hard rules leave open**, for the next MIP: which parts of Pekko, and how it
+- **What the seven hard rules leave open**, for the next MIP: which parts of Pekko, and how it
   lives with the Kyo module; what runs on GCP, and its budget, against the design's zero spend;
   which SDD framework; and whether the code moves to this repository or only the research does.
 - **What section 4 leaves open**: the GCP products, the store of the events, the number of

@@ -18,15 +18,20 @@ researches:
 paper research:
     {{nix}} --command just _paper {{research}} "{{research}}/{{research}}.pdf"
 
+# Render <research>/paper/design-prop.preprint.md, the design in pictures, to
+# <research>/design-prop.preprint.pdf. pandoc turns its SVG figures into PDF with rsvg-convert.
+preprint research:
+    {{nix}} --command just _paper {{research}} "{{research}}/design-prop.preprint.pdf" design-prop.preprint.md
+
 # Render every research's paper.
 papers:
     for r in $(just researches); do just paper "$r"; done
 
-_paper research out:
-    [ -f "{{research}}/paper/paper.md" ] || { echo "paper: no {{research}}/paper/paper.md" >&2; exit 1; }
+_paper research out src="paper.md":
+    [ -f "{{research}}/paper/{{src}}" ] || { echo "paper: no {{research}}/paper/{{src}}" >&2; exit 1; }
     scripts/logos.sh {{research}}
     mkdir -p "$(dirname "{{out}}")"
-    cd "{{research}}/paper" && pandoc paper.md \
+    cd "{{research}}/paper" && pandoc {{src}} \
       --from markdown --citeproc --bibliography refs.bib --metadata link-citations=true \
       --lua-filter ../../format/title.lua \
       --pdf-engine=xelatex --fail-if-warnings \
@@ -51,6 +56,14 @@ _current research:
     diff <(pdftotext "{{research}}/{{research}}.pdf" -) <(pdftotext "build/{{research}}/{{research}}.pdf" -) > /dev/null \
       || { echo "current: {{research}}/{{research}}.pdf was not made from this text; run just paper {{research}} and commit it" >&2; exit 1; }
     @echo "current: {{research}}/{{research}}.pdf is the one its text makes"
+    just _current_preprint {{research}}
+
+# A research with a preprint commits its PDF, and it too is the one its text makes.
+_current_preprint research:
+    [ ! -f "{{research}}/paper/design-prop.preprint.md" ] || [ -f "{{research}}/design-prop.preprint.pdf" ] || { echo "current: {{research}}/design-prop.preprint.pdf is not committed; run just preprint {{research}}" >&2; exit 1; }
+    [ ! -f "{{research}}/paper/design-prop.preprint.md" ] || just _paper {{research}} "build/{{research}}/design-prop.preprint.pdf" design-prop.preprint.md
+    [ ! -f "{{research}}/paper/design-prop.preprint.md" ] || diff <(pdftotext "{{research}}/design-prop.preprint.pdf" -) <(pdftotext "build/{{research}}/design-prop.preprint.pdf" -) > /dev/null \
+      || { echo "current: {{research}}/design-prop.preprint.pdf was not made from this text; run just preprint {{research}} and commit it" >&2; exit 1; }
 
 # What CI runs for one research: its references, and its PDF built and compared.
 check research:

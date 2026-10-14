@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 510" width="800" height="510" role="img">
+<title>The life of one point's actor</title>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b45309"/></marker><style>
+text{font-family:"DejaVu Sans",sans-serif;fill:#1f2937}
+.h{font-weight:bold;font-size:14px}.s{font-size:12px}.xs{font-size:11px;fill:#475569}.ttl{font-weight:bold;font-size:16px;fill:#0f3d4a}
+.box{fill:#f8fafc;stroke:#334155;stroke-width:1.4}.sea{fill:#ecfeff;stroke:#0e7490;stroke-width:1.6}.deep{fill:#0e7490;stroke:none}
+.open{fill:#fffbeb;stroke:#b45309;stroke-width:1.4;stroke-dasharray:6 4}.ot{fill:#92400e}
+.ln{stroke:#334155;stroke-width:1.4;fill:none;marker-end:url(#a)}.lo{stroke:#b45309;stroke-width:1.4;fill:none;stroke-dasharray:6 4;marker-end:url(#o)}
+.grid{stroke:#cbd5e1;stroke-width:1}
+</style></defs>
+<rect width="800" height="510" fill="#ffffff"/>
+<text x="400" y="24" class="ttl" text-anchor="middle">The life of one point's actor</text>
+<rect x="18" y="40" width="124" height="34" rx="8" class="sea"/>
+<text x="80" y="62" class="s" text-anchor="middle">CRUD API</text>
+<line x1="80" y1="74" x2="80" y2="470" stroke="#94a3b8" stroke-dasharray="3 4"/>
+<rect x="198" y="40" width="124" height="34" rx="8" class="sea"/>
+<text x="260" y="62" class="s" text-anchor="middle">Point actor</text>
+<line x1="260" y1="74" x2="260" y2="470" stroke="#94a3b8" stroke-dasharray="3 4"/>
+<rect x="358" y="40" width="124" height="34" rx="8" class="sea"/>
+<text x="420" y="62" class="s" text-anchor="middle">Providers</text>
+<line x1="420" y1="74" x2="420" y2="470" stroke="#94a3b8" stroke-dasharray="3 4"/>
+<rect x="508" y="40" width="124" height="34" rx="8" class="sea"/>
+<text x="570" y="62" class="s" text-anchor="middle">Instrument</text>
+<line x1="570" y1="74" x2="570" y2="470" stroke="#94a3b8" stroke-dasharray="3 4"/>
+<rect x="653" y="40" width="124" height="34" rx="8" class="open"/>
+<text x="715" y="62" class="s" text-anchor="middle">Event store ⚠</text>
+<line x1="715" y1="74" x2="715" y2="470" stroke="#94a3b8" stroke-dasharray="3 4"/>
+<path d="M80,100 L256,100" class="ln"/>
+<text x="170.0" y="94" class="xs" text-anchor="middle">1 add point P</text>
+<rect x="252" y="122" width="16" height="22" rx="3" class="box"/>
+<text x="276" y="138" class="xs" text-anchor="start">2 its own clock: the next observation is due</text>
+<path d="M260,170 L416,170" class="ln"/>
+<text x="340.0" y="164" class="xs" text-anchor="middle">3 ask for a forecast for P</text>
+<path d="M420,200 L264,200" class="ln"/>
+<text x="340.0" y="194" class="xs" text-anchor="middle">forecast, or a row that says “missing”</text>
+<path d="M260,236 L566,236" class="ln"/>
+<text x="415.0" y="230" class="xs" text-anchor="middle">4 get the observation</text>
+<path d="M570,266 L264,266" class="ln"/>
+<text x="415.0" y="260" class="xs" text-anchor="middle">observation, or “missing”</text>
+<rect x="252" y="288" width="16" height="22" rx="3" class="box"/>
+<text x="276" y="304" class="xs" text-anchor="start">5 score: one forecast against one observation</text>
+<path d="M260,338 L711,338" class="ln"/>
+<text x="487.5" y="332" class="xs" text-anchor="middle">6 store the event “score registered”</text>
+<rect x="252" y="364" width="16" height="22" rx="3" class="box"/>
+<text x="276" y="380" class="xs" text-anchor="start">7 idle: passivated (by default after 2 minutes)</text>
+<path d="M80,420 L256,420" class="ln"/>
+<text x="170.0" y="414" class="xs" text-anchor="middle">8 remove point P: the actor stops</text>
+<text x="20" y="494" class="xs" text-anchor="start">A step may run again after a restart: a score stored two times is one score. Nothing waits for “the batch”: each point keeps its own time.</text>
+</svg>

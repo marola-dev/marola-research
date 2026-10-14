@@ -7,6 +7,9 @@ coast and to ocean waves, with instruments as the truth.
   files of this directory ([`site/`](site/)).
 - **The paper:** [`marola-bench.pdf`](marola-bench.pdf), rendered from
   [`paper/paper.md`](paper/paper.md). A proposal, v0, draft. It reports no result.
+- **The preprint:** [`design-prop.preprint.pdf`](design-prop.preprint.pdf), the design proposal
+  in six figures, rendered from [`paper/design-prop.preprint.md`](paper/design-prop.preprint.md).
+  It draws the paper's section 4 and its hard rules, and designs nothing.
 - **The notes:** [`notes/index.md`](notes/index.md), a slip box: one idea in one note.
 - **The journal:** [`journal/README.md`](journal/README.md), one entry for each challenge met.
 - **The design:** marola's
@@ -16,7 +19,7 @@ coast and to ocean waves, with instruments as the truth.
 
 ## Hard rules
 
-The owner's rules (Hoffmann, 13 October 2026). They are not open to an agent's choice.
+The owner's rules (Hoffmann, 13 October 2026; rule 7, 14 October 2026). They are not open to an agent's choice.
 
 1. marola-bench is implemented in **Apache Pekko**, in **Scala 3**.
 2. marola-bench is implemented on **GCP**, and developed with **Claude Code**, with an **SDD**
@@ -29,6 +32,8 @@ The owner's rules (Hoffmann, 13 October 2026). They are not open to an agent's c
 6. marola-bench is **all rights reserved**, and the credit belongs to Matheus Hoffmann. No
    sharing outside marola-dev and ouroboric-dev without his acknowledgement. Whoever uses it
    cites it.
+7. **Ponytail 5** is adopted as the coding assistant, a Claude Code plugin (the owner,
+   14 October 2026).
 
 ## The bench, in the owner's words
 
@@ -43,7 +48,9 @@ is the final goal.
 Rules 1, 2, 4, 5 and 6 change the accepted design, which has Kyo, zero cloud spend, modules in
 marola-app, a cycle on GitHub Actions and a public chain under CC BY 4.0. The paper's section "Hard rules" says what each rule meets. A MIP must settle the
 rest before code is written: which parts of Pekko, what runs on GCP and its budget, which SDD
-framework, and whether the code moves here.
+framework, and whether the code moves here. Rule 7 agrees with the design, which names no
+plugin, and does not name the SDD framework: Ponytail is about the size of a change, not about a
+specification.
 
 ## Terms
 
@@ -74,6 +81,8 @@ The next version is released from that fork too, or it starts a second record.
 | File | What it is |
 |---|---|
 | `marola-bench.pdf` | the rendered paper |
+| `design-prop.preprint.pdf` | the design proposal in pictures, rendered from `paper/design-prop.preprint.md` (`just preprint marola-bench`) |
+| `paper/figures/` | the preprint's figures, drawn as SVG for it |
 | `paper/paper.md` | the text, with a mark on every claim |
 | `paper/refs.bib` | the references |
 | `paper/REFERENCES.md` | how each reference was checked |
