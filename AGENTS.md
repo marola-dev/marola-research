@@ -40,6 +40,8 @@ full, and [`TRADEMARKS.md`](TRADEMARKS.md) has the names and logos.
 - What every research shares is at the root: this file, `README.md` (the index), `NOTES.md`,
   `REUSE.toml`, `justfile`, `flake.nix`, `format/` (what every rendered paper shares),
   `scripts/`, `tools/` and `.claude/skills/`.
+- `chamada/` is a text of marola as a whole, not a research: the call for contribution and
+  publication, in easy pt-BR. Its hard rule is at most 5 pages (`just chamada`, `just chamada-check`).
 - How a text is written, checked and released: `.claude/skills/ouro-paper/SKILL.md`.
 - **Other people's skills are used by link, never copied** (`.claude/skills/README.md`,
   `.claude/skills/skills.lock`). The first ones are six skills of K-Dense's Scientific Agent

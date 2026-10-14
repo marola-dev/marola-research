@@ -15,6 +15,11 @@ its paper, its sources, the log of how each source was checked, and later its co
 |---|---|---|---|---|
 | [`marola-bench`](marola-bench/README.md) | a WeatherBench for Brazil: Brazilian regions, wave variables, instruments as the truth | [marola-dev.github.io/marola-research/marola-bench](https://marola-dev.github.io/marola-research/marola-bench/) | [PDF](marola-bench/marola-bench.pdf), [source](marola-bench/paper/paper.md) | a proposal, v0.1.0, DOI [10.5281/zenodo.23352633](https://doi.org/10.5281/zenodo.23352633). No score has been computed |
 
+Not a research: [`chamada/`](chamada/README.md), *Marola: Chamada para CONTRIBUIÇÃO e
+PUBLICAÇÃO* ([PDF](chamada/chamada.pdf), at most 5 pages). It is a call in easy Brazilian
+Portuguese to undergraduates, master's and doctoral students. It says what marola is, and what
+it takes to publish on marola.dev and to collaborate with it.
+
 Every research has the same four parts: a **paper** (with its references and the log of how each
 was checked), **notes** (a slip box, one idea in one note), a **journal** (one entry for each
 challenge met) and a **site** that tells it, built from those files. [`NOTES.md`](NOTES.md) has
