@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 508" width="800" height="508" role="img">
+<title>The system on GCP: points, actors and the cluster</title>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b45309"/></marker><style>
+text{font-family:"DejaVu Sans",sans-serif;fill:#1f2937}
+.h{font-weight:bold;font-size:14px}.s{font-size:12px}.xs{font-size:11px;fill:#475569}.ttl{font-weight:bold;font-size:16px;fill:#0f3d4a}
+.box{fill:#f8fafc;stroke:#334155;stroke-width:1.4}.sea{fill:#ecfeff;stroke:#0e7490;stroke-width:1.6}.deep{fill:#0e7490;stroke:none}
+.open{fill:#fffbeb;stroke:#b45309;stroke-width:1.4;stroke-dasharray:6 4}.ot{fill:#92400e}
+.ln{stroke:#334155;stroke-width:1.4;fill:none;marker-end:url(#a)}.lo{stroke:#b45309;stroke-width:1.4;fill:none;stroke-dasharray:6 4;marker-end:url(#o)}
+.grid{stroke:#cbd5e1;stroke-width:1}
+</style></defs>
+<rect width="800" height="508" fill="#ffffff"/>
+<text x="400" y="24" class="ttl" text-anchor="middle">The system: points, actors and the cluster</text>
+<rect x="20" y="44" width="150" height="50" rx="8" class="box"/>
+<text x="95" y="64" class="s" text-anchor="middle">Operator</text><text x="95" y="80" class="s" text-anchor="middle">(a person)</text>
+<path d="M170,69 L228,69" class="ln"/>
+<rect x="230" y="44" width="220" height="50" rx="8" class="sea"/>
+<text x="340" y="64" class="s" text-anchor="middle">CRUD API for points</text><text x="340" y="80" class="s" text-anchor="middle">Pekko HTTP</text>
+<rect x="200" y="106" width="580" height="306" rx="12" class="box"/>
+<text x="766" y="128" class="h" text-anchor="end">GCP (rule 2), defined as code in Besom (rule 3)</text>
+<rect x="214" y="150" width="380" height="248" rx="10" class="sea"/>
+<text x="228" y="172" class="h" text-anchor="start">Pekko cluster, Scala 3 (rule 1)</text>
+<rect x="228" y="186" width="110" height="150" rx="8" class="box"/>
+<text x="283" y="206" class="xs" text-anchor="middle">node · Spot VM</text>
+<circle cx="283" cy="236" r="13" class="deep"/>
+<text x="283" y="240" class="xs" text-anchor="middle" style="fill:#ffffff">P1</text>
+<circle cx="283" cy="270" r="13" class="deep"/>
+<text x="283" y="274" class="xs" text-anchor="middle" style="fill:#ffffff">P2</text>
+<circle cx="283" cy="304" r="13" class="deep"/>
+<text x="283" y="308" class="xs" text-anchor="middle" style="fill:#ffffff">P3</text>
+<rect x="350" y="186" width="110" height="150" rx="8" class="box"/>
+<text x="405" y="206" class="xs" text-anchor="middle">node · Spot VM</text>
+<circle cx="405" cy="236" r="13" class="deep"/>
+<text x="405" y="240" class="xs" text-anchor="middle" style="fill:#ffffff">P4</text>
+<circle cx="405" cy="270" r="13" class="deep"/>
+<text x="405" y="274" class="xs" text-anchor="middle" style="fill:#ffffff">P5</text>
+<circle cx="405" cy="304" r="13" class="deep"/>
+<text x="405" y="308" class="xs" text-anchor="middle" style="fill:#ffffff">P6</text>
+<rect x="472" y="186" width="110" height="150" rx="8" class="open"/>
+<text x="527" y="206" class="xs" text-anchor="middle">node · Spot VM</text>
+<circle cx="527" cy="236" r="13" fill="#ffffff" stroke="#b45309" stroke-dasharray="4 3"/>
+<circle cx="527" cy="270" r="13" fill="#ffffff" stroke="#b45309" stroke-dasharray="4 3"/>
+<circle cx="527" cy="304" r="13" fill="#ffffff" stroke="#b45309" stroke-dasharray="4 3"/>
+<text x="527" y="352" class="xs" text-anchor="middle">may be preempted</text>
+<text x="228" y="370" class="xs" text-anchor="start">one actor for each point, sharded; idle actors are passivated</text>
+<text x="228" y="388" class="xs" text-anchor="start">split brain resolver: which of its five strategies ⚠</text>
+<path d="M340,94 L340,148" class="ln"/>
+<text x="460" y="74" class="xs" text-anchor="start">add a point = start an actor;</text>
+<text x="460" y="88" class="xs" text-anchor="start">remove it = stop the actor</text>
+<rect x="612" y="150" width="150" height="74" rx="8" class="open"/>
+<text x="687" y="172" class="s" text-anchor="middle">Event store</text><text x="687" y="189" class="s" text-anchor="middle">product not chosen</text><text x="687" y="206" class="s" text-anchor="middle">⚠</text>
+<path d="M594,188 L610,188" class="ln"/>
+<rect x="612" y="250" width="150" height="74" rx="8" class="sea"/>
+<text x="687" y="274" class="h" text-anchor="middle">Score series</text><text x="687" y="292" class="h" text-anchor="middle">= the bench</text>
+<path d="M687,224 L687,248" class="ln"/>
+<rect x="612" y="440" width="150" height="54" rx="8" class="box"/>
+<text x="687" y="462" class="s" text-anchor="middle">Scorecard</text><text x="687" y="478" class="s" text-anchor="middle">filtered by licence tier</text>
+<path d="M687,324 L687,438" class="ln"/>
+<rect x="20" y="160" width="160" height="62" rx="8" class="box"/>
+<text x="100" y="182" class="s" text-anchor="middle">Instruments</text><text x="100" y="197" class="s" text-anchor="middle">buoys · stations</text><text x="100" y="212" class="s" text-anchor="middle">radiosondes</text>
+<path d="M180,190 L212,210" class="ln"/>
+<rect x="20" y="246" width="160" height="62" rx="8" class="box"/>
+<text x="100" y="270" class="s" text-anchor="middle">Providers</text><text x="100" y="286" class="s" text-anchor="middle">their forecasts</text>
+<path d="M212,262 L182,276" class="ln" style="marker-start:url(#a)"/>
+<text x="100" y="324" class="xs" text-anchor="middle">asked with a time limit</text>
+<rect x="20" y="340" width="160" height="58" rx="8" class="open"/>
+<text x="100" y="362" class="s" text-anchor="middle">marola's forecaster</text><text x="100" y="378" class="s" text-anchor="middle">later</text>
+<path d="M212,330 L182,362" class="lo" style="marker-start:url(#o)"/>
+<rect x="20" y="436" width="26" height="16" rx="3" class="sea"/>
+<text x="54" y="449" class="xs" text-anchor="start">a hard rule, or the paper's section 4</text>
+<rect x="20" y="462" width="26" height="16" rx="3" class="open"/>
+<text x="54" y="475" class="xs" text-anchor="start">open: for the next MIP ⚠</text>
+<text x="54" y="496" class="xs" text-anchor="start">no size, product or price here has been chosen</text>
+</svg>

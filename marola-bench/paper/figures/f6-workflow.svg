@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 262" width="800" height="262" role="img">
+<title>How a change to marola-bench is made</title>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b45309"/></marker><style>
+text{font-family:"DejaVu Sans",sans-serif;fill:#1f2937}
+.h{font-weight:bold;font-size:14px}.s{font-size:12px}.xs{font-size:11px;fill:#475569}.ttl{font-weight:bold;font-size:16px;fill:#0f3d4a}
+.box{fill:#f8fafc;stroke:#334155;stroke-width:1.4}.sea{fill:#ecfeff;stroke:#0e7490;stroke-width:1.6}.deep{fill:#0e7490;stroke:none}
+.open{fill:#fffbeb;stroke:#b45309;stroke-width:1.4;stroke-dasharray:6 4}.ot{fill:#92400e}
+.ln{stroke:#334155;stroke-width:1.4;fill:none;marker-end:url(#a)}.lo{stroke:#b45309;stroke-width:1.4;fill:none;stroke-dasharray:6 4;marker-end:url(#o)}
+.grid{stroke:#cbd5e1;stroke-width:1}
+</style></defs>
+<rect width="800" height="262" fill="#ffffff"/>
+<text x="400" y="24" class="ttl" text-anchor="middle">How a change to marola-bench is made</text>
+<rect x="20" y="50" width="140" height="92" rx="8" class="sea"/>
+<text x="90" y="74" class="h" text-anchor="middle">The owner</text>
+<text x="90" y="98" class="xs" text-anchor="middle">steers: thesis,</text><text x="90" y="114" class="xs" text-anchor="middle">rules, merges</text>
+<path d="M160,96 L174,96" class="ln"/>
+<rect x="176" y="50" width="140" height="92" rx="8" class="sea"/>
+<text x="246" y="74" class="h" text-anchor="middle">A MIP</text>
+<text x="246" y="98" class="xs" text-anchor="middle">in marola-dev/marola:</text><text x="246" y="114" class="xs" text-anchor="middle">the design, first</text>
+<path d="M316,96 L330,96" class="ln"/>
+<rect x="332" y="50" width="140" height="92" rx="8" class="open"/>
+<text x="402" y="74" class="h" text-anchor="middle">SDD framework</text>
+<text x="402" y="98" class="xs" text-anchor="middle">rule 2: which</text><text x="402" y="114" class="xs" text-anchor="middle">one is open ⚠</text>
+<path d="M472,96 L486,96" class="ln"/>
+<rect x="488" y="50" width="140" height="92" rx="8" class="sea"/>
+<text x="558" y="74" class="h" text-anchor="middle">Claude Code</text>
+<text x="558" y="98" class="xs" text-anchor="middle">+ Ponytail 5 (rule 7):</text><text x="558" y="114" class="xs" text-anchor="middle">the smallest change</text>
+<path d="M628,96 L642,96" class="ln"/>
+<rect x="644" y="50" width="140" height="92" rx="8" class="sea"/>
+<text x="714" y="74" class="h" text-anchor="middle">Pull request</text>
+<text x="714" y="98" class="xs" text-anchor="middle">checks pass; the</text><text x="714" y="114" class="xs" text-anchor="middle">owner merges</text>
+<rect x="20" y="168" width="760" height="82" rx="8" class="box"/>
+<text x="36" y="192" class="h" text-anchor="start">What the change is made of</text>
+<text x="36" y="216" class="s" text-anchor="start">Scala 3 and Apache Pekko (rule 1) · infrastructure in Besom, the same language (rule 3) · deployed on GCP (rule 2)</text>
+<text x="36" y="238" class="xs" text-anchor="start">Ponytail decides how small a change is; an SDD framework decides what it is for. Neither replaces the MIP.</text>
+</svg>

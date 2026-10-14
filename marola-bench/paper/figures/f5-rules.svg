@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 410" width="800" height="410" role="img">
+<title>The seven hard rules against MIP-0091</title>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b45309"/></marker><style>
+text{font-family:"DejaVu Sans",sans-serif;fill:#1f2937}
+.h{font-weight:bold;font-size:14px}.s{font-size:12px}.xs{font-size:11px;fill:#475569}.ttl{font-weight:bold;font-size:16px;fill:#0f3d4a}
+.box{fill:#f8fafc;stroke:#334155;stroke-width:1.4}.sea{fill:#ecfeff;stroke:#0e7490;stroke-width:1.6}.deep{fill:#0e7490;stroke:none}
+.open{fill:#fffbeb;stroke:#b45309;stroke-width:1.4;stroke-dasharray:6 4}.ot{fill:#92400e}
+.ln{stroke:#334155;stroke-width:1.4;fill:none;marker-end:url(#a)}.lo{stroke:#b45309;stroke-width:1.4;fill:none;stroke-dasharray:6 4;marker-end:url(#o)}
+.grid{stroke:#cbd5e1;stroke-width:1}
+</style></defs>
+<rect width="800" height="410" fill="#ffffff"/>
+<text x="400" y="24" class="ttl" text-anchor="middle">The seven hard rules, against the accepted design (MIP-0091)</text>
+<text x="30" y="56" class="xs" text-anchor="start">Rule</text>
+<text x="330" y="56" class="xs" text-anchor="start">What it meets in MIP-0091</text>
+<line x1="20" y1="66" x2="780" y2="66" class="grid"/>
+<circle cx="38" cy="88" r="13" class="deep"/>
+<text x="38" y="93" class="h" text-anchor="middle" style="fill:#ffffff">1</text>
+<text x="62" y="93" class="s" text-anchor="start">Apache Pekko, Scala 3</text>
+<text x="330" y="93" class="s" text-anchor="start">Scala 3 agrees; Kyo becomes Pekko</text>
+<rect x="690" y="76" width="86" height="24" rx="12" fill="#fef2f2" stroke="#b91c1c"/>
+<text x="733" y="93" class="s" text-anchor="middle" style="fill:#b91c1c">changes</text>
+<line x1="20" y1="110" x2="780" y2="110" class="grid"/>
+<circle cx="38" cy="132" r="13" class="deep"/>
+<text x="38" y="137" class="h" text-anchor="middle" style="fill:#ffffff">2</text>
+<text x="62" y="137" class="s" text-anchor="start">GCP, Claude Code, an SDD framework</text>
+<text x="330" y="137" class="s" text-anchor="start">zero spend meets a paid cloud; SDD unnamed</text>
+<rect x="690" y="120" width="86" height="24" rx="12" fill="#fef2f2" stroke="#b91c1c"/>
+<text x="733" y="137" class="s" text-anchor="middle" style="fill:#b91c1c">changes</text>
+<line x1="20" y1="154" x2="780" y2="154" class="grid"/>
+<circle cx="38" cy="176" r="13" class="deep"/>
+<text x="38" y="181" class="h" text-anchor="middle" style="fill:#ffffff">3</text>
+<text x="62" y="181" class="s" text-anchor="start">Besom</text>
+<text x="330" y="181" class="s" text-anchor="start">the design provisions nothing, so it has no IaC</text>
+<rect x="690" y="164" width="86" height="24" rx="12" fill="#f1f5f9" stroke="#475569"/>
+<text x="733" y="181" class="s" text-anchor="middle" style="fill:#475569">adds</text>
+<line x1="20" y1="198" x2="780" y2="198" class="grid"/>
+<circle cx="38" cy="220" r="13" class="deep"/>
+<text x="38" y="225" class="h" text-anchor="middle" style="fill:#ffffff">4</text>
+<text x="62" y="225" class="s" text-anchor="start">lives in marola-research/marola-bench</text>
+<text x="330" y="225" class="s" text-anchor="start">no new repository agrees; the home moves</text>
+<rect x="690" y="208" width="86" height="24" rx="12" fill="#fef2f2" stroke="#b91c1c"/>
+<text x="733" y="225" class="s" text-anchor="middle" style="fill:#b91c1c">changes</text>
+<line x1="20" y1="242" x2="780" y2="242" class="grid"/>
+<circle cx="38" cy="264" r="13" class="deep"/>
+<text x="38" y="269" class="h" text-anchor="middle" style="fill:#ffffff">5</text>
+<text x="62" y="269" class="s" text-anchor="start">a cheap and reliable cluster</text>
+<text x="330" y="269" class="s" text-anchor="start">same aims; an always-on cluster on a paid cloud</text>
+<rect x="690" y="252" width="86" height="24" rx="12" fill="#fef2f2" stroke="#b91c1c"/>
+<text x="733" y="269" class="s" text-anchor="middle" style="fill:#b91c1c">changes</text>
+<line x1="20" y1="286" x2="780" y2="286" class="grid"/>
+<circle cx="38" cy="308" r="13" class="deep"/>
+<text x="38" y="313" class="h" text-anchor="middle" style="fill:#ffffff">6</text>
+<text x="62" y="313" class="s" text-anchor="start">all rights reserved</text>
+<text x="330" y="313" class="s" text-anchor="start">the design wants CC BY 4.0 scorecards</text>
+<rect x="690" y="296" width="86" height="24" rx="12" fill="#fef2f2" stroke="#b91c1c"/>
+<text x="733" y="313" class="s" text-anchor="middle" style="fill:#b91c1c">changes</text>
+<line x1="20" y1="330" x2="780" y2="330" class="grid"/>
+<circle cx="38" cy="352" r="13" class="deep"/>
+<text x="38" y="357" class="h" text-anchor="middle" style="fill:#ffffff">7</text>
+<text x="62" y="357" class="s" text-anchor="start">Ponytail 5, a Claude Code plugin</text>
+<text x="330" y="357" class="s" text-anchor="start">written with Claude Code; names no plugin</text>
+<rect x="690" y="340" width="86" height="24" rx="12" fill="#f0fdf4" stroke="#15803d"/>
+<text x="733" y="357" class="s" text-anchor="middle" style="fill:#15803d">agrees</text>
+<line x1="20" y1="374" x2="780" y2="374" class="grid"/>
+<text x="20" y="396" class="xs" text-anchor="start">The rules are the owner's later word, so they win; how each change is settled is for the next MIP.</text>
+</svg>

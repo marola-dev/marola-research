@@ -9,7 +9,7 @@ The map of the slip box. Every note is linked here. [`NOTES.md`](../../NOTES.md)
 
 ## The rules and what they meet
 
-- [[202610132141-five-hard-rules]]: six hard rules (permanent, verified)
+- [[202610132141-five-hard-rules]]: seven hard rules (permanent, verified)
 - [[202610132147-zero-spend-meets-a-paid-cloud]]: zero spend meets a paid cloud (permanent, open question)
 - [[202610132144-reliability-is-what-makes-it-cheap]]: reliability is what makes it cheap (permanent, partial)
 - [[202610132148-the-design-is-narrower-than-the-first-note]]: the design is narrower than the first note (permanent, verified)

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 370" width="800" height="370" role="img">
+<title>The bench is the set of score series</title>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b45309"/></marker><style>
+text{font-family:"DejaVu Sans",sans-serif;fill:#1f2937}
+.h{font-weight:bold;font-size:14px}.s{font-size:12px}.xs{font-size:11px;fill:#475569}.ttl{font-weight:bold;font-size:16px;fill:#0f3d4a}
+.box{fill:#f8fafc;stroke:#334155;stroke-width:1.4}.sea{fill:#ecfeff;stroke:#0e7490;stroke-width:1.6}.deep{fill:#0e7490;stroke:none}
+.open{fill:#fffbeb;stroke:#b45309;stroke-width:1.4;stroke-dasharray:6 4}.ot{fill:#92400e}
+.ln{stroke:#334155;stroke-width:1.4;fill:none;marker-end:url(#a)}.lo{stroke:#b45309;stroke-width:1.4;fill:none;stroke-dasharray:6 4;marker-end:url(#o)}
+.grid{stroke:#cbd5e1;stroke-width:1}
+</style></defs>
+<rect width="800" height="370" fill="#ffffff"/>
+<text x="400" y="26" class="ttl" text-anchor="middle">The bench is the set of all the score series</text>
+<rect x="20" y="50" width="230" height="132" rx="8" class="sea"/>
+<text x="135" y="74" class="h" text-anchor="middle">Observation point</text>
+<text x="36" y="98" class="s" text-anchor="start">instrument · averaging</text><text x="36" y="115" class="s" text-anchor="start">quality flag · licence tier</text><text x="36" y="132" class="s" text-anchor="start">added by hand, through</text><text x="36" y="149" class="s" text-anchor="start">the CRUD API</text>
+<rect x="550" y="50" width="230" height="132" rx="8" class="sea"/>
+<text x="665" y="74" class="h" text-anchor="middle">Forecaster</text>
+<text x="566" y="98" class="s" text-anchor="start">a provider's model, today</text><text x="566" y="115" class="s" text-anchor="start">marola's own, later</text><text x="566" y="132" class="s" text-anchor="start">every one scored by</text><text x="566" y="149" class="s" text-anchor="start">the same rule</text>
+<rect x="300" y="82" width="200" height="68" rx="8" class="box"/>
+<text x="400" y="108" class="h" text-anchor="middle">Score</text>
+<text x="400" y="128" class="s" text-anchor="middle">one forecast against</text>
+<text x="400" y="144" class="s" text-anchor="middle">one observation</text>
+<path d="M250,116 L298,116" class="ln"/>
+<text x="274" y="108" class="xs" text-anchor="middle">obs.</text>
+<path d="M550,116 L502,116" class="ln"/>
+<text x="526" y="108" class="xs" text-anchor="middle">fcst</text>
+<path d="M400,150 L400,214" class="ln"/>
+<text x="408" y="186" class="xs" text-anchor="start">registered by the point's actor</text>
+<rect x="20" y="218" width="760" height="136" rx="8" class="box"/>
+<text x="36" y="242" class="h" text-anchor="start">One score series</text>
+<text x="176" y="242" class="s" text-anchor="start">= one forecaster × one point × one variable × one lead, in order of time</text>
+<line x1="50" y1="300" x2="740" y2="300" class="grid"/>
+<path d="M720,300 L752,300" class="ln"/>
+<text x="752" y="320" class="xs" text-anchor="end">time</text>
+<circle cx="70" cy="286" r="5" class="deep"/>
+<circle cx="114" cy="278" r="5" class="deep"/>
+<circle cx="158" cy="292" r="5" class="deep"/>
+<circle cx="202" cy="270" r="5" class="deep"/>
+<circle cx="246" cy="284" r="5" class="deep"/>
+<circle cx="290" cy="282" r="5" fill="#ffffff" stroke="#b45309" stroke-width="1.6"/>
+<circle cx="334" cy="276" r="5" class="deep"/>
+<circle cx="378" cy="288" r="5" class="deep"/>
+<circle cx="422" cy="268" r="5" class="deep"/>
+<circle cx="466" cy="281" r="5" class="deep"/>
+<circle cx="510" cy="274" r="5" class="deep"/>
+<circle cx="554" cy="282" r="5" fill="#ffffff" stroke="#b45309" stroke-width="1.6"/>
+<circle cx="598" cy="285" r="5" class="deep"/>
+<circle cx="642" cy="272" r="5" class="deep"/>
+<circle cx="686" cy="279" r="5" class="deep"/>
+<text x="36" y="340" class="xs" text-anchor="start">● a registered score, never edited</text>
+<text x="260" y="340" class="xs" text-anchor="start">○ a row that says “missing”, never a model's value</text>
+<text x="764" y="340" class="xs" text-anchor="end">a new protocol version starts new series</text>
+</svg>

@@ -15,7 +15,7 @@ pub fn the_page_tells_the_research_test() {
   assert string.contains(html, "href=\"paper.pdf\"")
   // The owner's sentence, and his rules, come from the research's files.
   assert content.bench != ""
-  assert list.length(content.rules) == 6
+  assert list.length(content.rules) == 7
   assert list.all(content.rules, fn(r) { string.contains(html, r) })
   assert content.references > 0
   assert content.references
