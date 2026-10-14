@@ -16,6 +16,11 @@ coast and to ocean waves, with instruments as the truth.
   [MIP-0091](https://github.com/marola-dev/marola/blob/cf7bd4f/docs/MIPs/MIP-0091-marola-forecaster-architecture.md),
   accepted on 13 October 2026. If the paper and the MIP disagree, the MIP is right.
 - **The code:** none yet.
+- **The experiment:** marola-bench is `marola-experiment-001`, the first research of
+  marola-research. It will be filed later as a case study of how marola-research, the tool,
+  improves itself (the owner, 14 October 2026).
+- **The overrides:** [`OVERRIDE_CONFIG.toml`](OVERRIDE_CONFIG.toml) declares what marola-bench
+  changes of the root's discipline: its licence and its workflow.
 
 ## Hard rules
 

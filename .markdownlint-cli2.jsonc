@@ -10,7 +10,9 @@
     // A reference and a quoted address are text to copy: a bare URL stays bare.
     "MD034": false,
     // Tables are not padded into columns.
-    "MD060": false
+    "MD060": false,
+    // HTML only for the centred header of the root README, as in picasso's, and a collapsed table.
+    "MD033": { "allowed_elements": ["div", "img", "sub", "a", "details", "summary"] }
   },
   // The files are given by scripts/md-quality.sh (the tracked ones). No "globs" here: the tool
   // would add them to that list and read the packages a site's build downloads.

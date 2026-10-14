@@ -1,0 +1,88 @@
+# OVERRIDE_CONFIG.toml: how much a research may override the discipline of this repository.
+#
+# The discipline comes from the root: AGENTS.md, REUSE.md, TRADEMARKS.md, NOTES.md and the
+# ouro-paper skill. Every research starts with all of it. The researcher who owns a research is
+# free to set its licence on their own terms and to work in their own way; what they change is
+# declared in <research>/OVERRIDE_CONFIG.toml, and `just overrides` (scripts/override-check.py)
+# refuses a declaration this file does not allow. The owner of the repository set this on
+# 14 October 2026.
+#
+# Each policy has one of three levels:
+#   free           the research may set its own value. It declares the value, since when, and
+#                  the files where a reader finds it.
+#   stricter-only  the research may add to the root's rule (a check, a part), never take from it.
+#   never          the rule holds in every research, as written at the root.
+#
+# A research with no OVERRIDE_CONFIG.toml of its own keeps every root default.
+
+version = 1
+
+[policy.licence]
+override = "free"
+default = "texts CC-BY-4.0, code MIT (LICENSE, REUSE.toml)"
+rule = "The terms of a research are its owner's: a block for <research>/** in REUSE.toml, a 'Terms' section in its README and, for an all-rights-reserved research, a section in REUSE.md."
+source = "AGENTS.md, 'Hard rules: reuse, credit and citation', rule 5"
+
+[policy.workflow]
+override = "free"
+default = "the ouro-paper loop, Claude Code, the tools of flake.nix"
+rule = "The tools, languages, frameworks, coding assistants, recipes and order of work of a research are its owner's, written as hard rules in its README."
+source = "AGENTS.md, 'Rules', rule 2"
+
+[policy.language]
+override = "free"
+default = "English, with an easy pt-BR version on request"
+rule = "The language of a research's texts."
+source = "ouro-paper, 'An easy pt-BR version'"
+
+[policy.checks]
+override = "stricter-only"
+default = "the checks of AGENTS.md's table"
+rule = "A research may add checks. It never removes, skips or loosens one of the root's."
+source = "AGENTS.md, 'Rules', rule 8"
+
+[policy.parts]
+override = "stricter-only"
+default = "README.md, paper/, the rendered PDF, notes/, journal/, site/"
+rule = "A research may add parts. It keeps every part the root names."
+source = "AGENTS.md, 'Map'"
+
+[policy.citation]
+override = "never"
+rule = "Whoever uses a research cites it with its DOI, and credits the works it stands on."
+source = "AGENTS.md, 'Hard rules: reuse, credit and citation', rule 3"
+
+[policy.trademarks]
+override = "never"
+rule = "A name or a logo is never ours to use."
+source = "TRADEMARKS.md"
+
+[policy.references]
+override = "never"
+rule = "Never invent a reference; every claim carries a mark; every number has its command."
+source = "AGENTS.md, 'Rules', rule 5; ouro-paper, 'Hard rules'"
+
+[policy.humans-steer]
+override = "never"
+rule = "A thesis, an author, a conclusion and a hard rule are a human's. An agent stops and asks."
+source = "AGENTS.md, 'Rules', rule 1"
+
+[policy.private-sources]
+override = "never"
+rule = "Never copy from a private repository."
+source = "AGENTS.md, 'Rules', rule 8"
+
+[policy.isolation]
+override = "never"
+rule = "A research does not read the directory of another research; what two share goes to the root."
+source = "AGENTS.md, 'Rules', rule 3"
+
+[policy.branches]
+override = "never"
+rule = "Work on a branch, stage files by path, open a pull request. Never merge or push to main."
+source = "AGENTS.md, 'Rules', rule 7"
+
+[policy.release]
+override = "never"
+rule = "Only the owner asks for a release, by name, through `just release`; the DOI discipline holds."
+source = "AGENTS.md, 'Rules', rule 7, and 'The DOI discipline'"

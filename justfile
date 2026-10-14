@@ -128,6 +128,12 @@ skills *args:
 notes research:
     scripts/notes-check.sh {{research}}
 
+# Each research overrides the root's discipline only as far as OVERRIDE_CONFIG.toml allows: its
+# licence and its workflow are its owner's; the rest it keeps or makes stricter.
+overrides:
+    python3 scripts/override-check.py --self-test
+    python3 scripts/override-check.py
+
 # Licence and copyright for every file (REUSE.toml).
 reuse:
     {{nix}} .#md --command reuse lint

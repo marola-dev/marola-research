@@ -5,6 +5,7 @@ Decision, Result, Lessons. [`NOTES.md`](../../NOTES.md) has the rules.
 
 | Date | Entry | Tags | Status |
 |---|---|---|---|
+| 2026-10-14 | [a freedom that a check can see](2026-10-14-a-freedom-a-check-can-see.md) | licence, rules, checks, overrides | closed |
 | 2026-10-14 | [a seventh rule, and a test that counted six](2026-10-14-a-seventh-rule-and-a-test-that-counted-six.md) | rules, numbers, checks, ponytail | closed |
 | 2026-10-13 | [a paper written before its design was found](2026-10-13-a-paper-written-before-its-design-was-found.md) | paper, mip, verification | closed |
 | 2026-10-13 | [five rules in one place and six in another](2026-10-13-five-rules-in-one-place-and-six-in-another.md) | numbers, skill, checks | closed |

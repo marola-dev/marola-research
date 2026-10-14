@@ -1,0 +1,15 @@
+# What marola-bench overrides of the root's discipline (../OVERRIDE_CONFIG.toml says how much a
+# research may). Every other policy is the root's. `just overrides` checks this file.
+
+research = "marola-bench"
+owner = "Matheus Hoffmann (@h0ffmann)"
+
+[override.licence]
+value = "LicenseRef-Hoffmann-All-Rights-Reserved"
+since = 2026-10-13
+where = ["REUSE.toml", "REUSE.md", "marola-bench/README.md"]
+
+[override.workflow]
+value = "Apache Pekko in Scala 3, on GCP, with Besom; Claude Code with an SDD framework; Ponytail 5"
+since = 2026-10-13
+where = ["marola-bench/README.md"]

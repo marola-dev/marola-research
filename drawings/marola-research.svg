@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" role="img" aria-labelledby="t">
+  <title id="t">A small wave that curls into a loop, over a line of sand, under a sun: an original drawing for marola-research</title>
+  <path d="M14 142 C 52 142, 70 128, 92 104 C 116 78, 150 52, 186 56 C 222 60, 236 92, 214 112 C 196 128, 168 120, 170 100 C 172 84, 194 80, 204 94 C 214 110, 196 140, 232 146 C 258 150, 282 140, 306 142"
+        fill="none" stroke="#1682D4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M40 162 H 280" fill="none" stroke="#F2B705" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="262" cy="40" r="11" fill="none" stroke="#F2B705" stroke-width="3"/>
+</svg>
