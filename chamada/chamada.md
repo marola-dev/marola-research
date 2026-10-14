@@ -178,10 +178,8 @@ Ferramentas que já estão no marola-dev e que qualquer pesquisa pode usar:
   `marola-corpus` (anotações sobre o mar, com fonte) e `marola-oods` (dados abertos de praias)
   [@marolasobre] **(v)**.
 
-Projetos de Matheus Hoffmann, com DOI e repositório público **(v)**:
+Outros trabalhos do mesmo autor do Marola, com DOI e repositório público **(v)**:
 
-- **marola**, a plataforma de condições do mar e de balneabilidade [@marola]:
-  [marola-dev/marola](https://github.com/marola-dev/marola).
 - **WW3 GPU Lab**, o modelo de ondas WAVEWATCH III na placa de vídeo, idêntico ao original bit a
   bit [@ww3gpu]: [h0ffmann/ww3-gpu](https://github.com/h0ffmann/ww3-gpu).
 - **marola-bench**, a proposta de um WeatherBench para o Brasil [@marolabench]:
@@ -207,6 +205,10 @@ trabalho, está em
 3. Para colaborar: abra uma issue contando a sua pesquisa em poucas linhas: o tema, o que o seu
    código vai fazer e qual licença de código aberto você prefere. Não é preciso mandar o conteúdo
    da pesquisa.
+
+Siga o marola no Instagram, [\@rj.marola](https://www.instagram.com/rj.marola/) e
+[\@sc.marola](https://www.instagram.com/sc.marola/), e no LinkedIn,
+[marola-dev](https://www.linkedin.com/company/marola-dev/).
 
 ## 9. O que ainda não está decidido
 
