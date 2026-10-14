@@ -25,12 +25,17 @@ preprint research:
 
 # The call for contribution and publication (chamada/chamada.md): a text of marola as a whole,
 # not of one research, so it has no logos and no site. Hard rule: at most 5 pages.
+# The PDF names the last commit that changed its text, so a reader can go back to the repository
+# and see how it was made: commit the text first, then render, then commit the PDF.
 chamada:
+    git diff --quiet HEAD -- chamada/chamada.md chamada/refs.bib || { echo "chamada: commit chamada.md and refs.bib first; the PDF names the commit of its text" >&2; exit 1; }
     {{nix}} --command just _chamada chamada/chamada.pdf
 
 _chamada out:
-    mkdir -p "$(dirname "{{out}}")"
-    cd chamada && pandoc chamada.md \
+    mkdir -p "$(dirname "{{out}}")" build/chamada
+    commit="$(git log -1 --format=%H -- chamada/chamada.md chamada/refs.bib)"; \
+      printf '\\noindent\\textbf{Como este PDF foi feito.} A partir do commit \\href{https://github.com/marola-dev/marola-research/tree/%s/chamada}{\\texttt{%s}} de marola-dev/marola-research. Ali estão o texto, as referências, como cada uma foi conferida e o pull request com a conversa que construiu este documento.\\par\\medskip\n' "$commit" "${commit:0:7}" > build/chamada/commit.tex
+    cd chamada && pandoc chamada.md --include-before-body=../build/chamada/commit.tex \
       --from markdown --citeproc --bibliography refs.bib --metadata link-citations=true \
       --lua-filter ../format/title.lua \
       --pdf-engine=xelatex --fail-if-warnings -H ../format/header.tex \

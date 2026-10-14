@@ -10,6 +10,14 @@ pesquisa.
 - **As referências:** [`refs.bib`](refs.bib), e como cada uma foi conferida em
   [`REFERENCES.md`](REFERENCES.md).
 
+## De que commit o PDF foi feito
+
+O PDF começa com o commit que mudou o texto pela última vez (`chamada.md` ou `refs.bib`), com um
+link para o repositório nesse commit. Assim, quem lê o PDF volta ao repositório e vê como o
+documento foi construído: o texto, as referências, como cada uma foi conferida e o pull request
+com a conversa. Por isso a ordem é esta: commit do texto, depois `just chamada`, depois commit do
+PDF. `just chamada` recusa um texto que ainda não foi commitado.
+
 ## Regras fixas
 
 As regras do dono (Hoffmann, 14 de outubro de 2026). Não estão abertas à escolha de um agente.
