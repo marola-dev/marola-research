@@ -14,6 +14,10 @@ The map of the slip box. Every note is linked here. [`NOTES.md`](../../NOTES.md)
 - [[202610132144-reliability-is-what-makes-it-cheap]]: reliability is what makes it cheap (permanent, partial)
 - [[202610132148-the-design-is-narrower-than-the-first-note]]: the design is narrower than the first note (permanent, verified)
 
+## What it is a test of
+
+- [[202610142027-marola-experiment-001]]: marola-bench is marola-experiment 001 (fleeting, verified)
+
 ## What was read
 
 - [[202610132145-operational-weatherbench-read-again]]: Operational WeatherBench, read again (literature, verified)

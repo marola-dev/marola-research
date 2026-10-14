@@ -24,7 +24,16 @@ full, and [`TRADEMARKS.md`](TRADEMARKS.md) has the names and logos.
 
 ## Map
 
-- One directory at the root is one research: `marola-bench/` is the first.
+- One directory at the root is one research: `marola-bench/` is the first. Each research is a
+  marola experiment, numbered in the order it was opened. marola-bench is
+  `marola-experiment-001`. It will be filed later as a case study of how marola-research, the
+  tool, improves itself (the owner, 14 October 2026). The root `README.md` lists the numbers.
+- **Discipline from the root, freedom in a research.** Every research starts with the whole
+  discipline of the root. Its owner is free to set its licence on their own terms and to work in
+  their own way. `OVERRIDE_CONFIG.toml` at the root says how much a research may override, policy
+  by policy (`free`, `stricter-only`, `never`); a research declares what it changes in
+  `<research>/OVERRIDE_CONFIG.toml`, and `just overrides` checks it. An agent never writes an
+  override that its research's owner did not give.
 - A research has a `README.md` (what it is, its hard rules, its status), a `paper/` directory
   (the text, its references, the log of how each was checked), its rendered paper
   (`<research>/<research>.pdf`), `notes/` (a slip box), `journal/` (one entry for each challenge
@@ -38,8 +47,8 @@ full, and [`TRADEMARKS.md`](TRADEMARKS.md) has the names and logos.
 - Licence and copyright for every file: `REUSE.toml`. A new kind of file needs no header; a new
   directory of code needs its path there.
 - What every research shares is at the root: this file, `README.md` (the index), `NOTES.md`,
-  `REUSE.toml`, `justfile`, `flake.nix`, `format/` (what every rendered paper shares),
-  `scripts/`, `tools/` and `.claude/skills/`.
+  `REUSE.toml`, `OVERRIDE_CONFIG.toml`, `justfile`, `flake.nix`, `format/` (what every rendered
+  paper shares), `drawings/` (the README's drawing), `scripts/`, `tools/` and `.claude/skills/`.
 - `chamada/` is a text of marola as a whole, not a research: the call for contribution and
   publication, in easy pt-BR. Its hard rule is at most 5 pages (`just chamada`, `just chamada-check`).
 - How a text is written, checked and released: `.claude/skills/ouro-paper/SKILL.md`.
@@ -56,8 +65,9 @@ full, and [`TRADEMARKS.md`](TRADEMARKS.md) has the names and logos.
 2. A research's hard rules are in its `README.md`. They are not open to an agent's choice.
 3. A research does not read the directory of another research. What two of them share goes to
    the root.
-4. A new research is a new directory with the three parts above, and one row in the root
-   `README.md`. Only the owner starts one.
+4. A new research is a new directory with the parts above, and one row in the root `README.md`
+   with the next experiment number. Only the owner of the repository starts one, at a
+   researcher's request; the research is then its researcher's.
 5. Never invent a reference. Every claim carries a mark (`ouro-paper`).
 6. A design change is written in a MIP in `marola-dev/marola` first. A paper gives an account of
    a design; it does not make one.
@@ -79,6 +89,7 @@ that can fail on `main` runs on the pull request first.
 | `just md-quality --online` | every web link answers | `live links / alive`, also each Monday |
 | `just notes <research>` | the slip box keeps its rules: front matter, ids, links, the index | `.md / quality` |
 | `just reuse` | every file has a licence and a copyright in `REUSE.toml` | `.md / quality` |
+| `just overrides` | each research overrides the root only as `OVERRIDE_CONFIG.toml` allows, and its licence is the one `REUSE.toml` gives it | `.md / quality` |
 | `just citation <research> --check` | the record's metadata is valid and names a licence; `.zenodo.json` and `CITATION.cff` are what it makes | `.md / quality` |
 | `just doi <research>` | the DOI of a released research is in every place a reader or an index looks | `.md / quality`, and `pdf / build` for the PDF |
 | `just pages` | every research's site: the generator's tests, the site's tests, the build | `site / build`; `site / deploy` publishes from `main` |

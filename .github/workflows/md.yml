@@ -30,5 +30,7 @@ jobs:
           for f in */zenodo.json; do python3 scripts/citation.py "${f%%/*}" --check; done
       - name: the DOI of each released research is in every place
         run: for f in */doi.tsv; do scripts/doi-check.sh "${f%%/*}"; done
+      - name: each research overrides the root only as OVERRIDE_CONFIG.toml allows
+        run: python3 scripts/override-check.py --self-test && python3 scripts/override-check.py
       - name: every file has a licence and a copyright
         run: nix develop --no-update-lock-file .#md --command reuse lint
