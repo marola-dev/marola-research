@@ -52,3 +52,13 @@ jobs:
           name: paper-${{ matrix.research }}
           path: build/${{ matrix.research }}/${{ matrix.research }}.pdf
           if-no-files-found: error
+
+  # The call for contribution and publication: a text of marola as a whole, not of one research.
+  chamada:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v31
+      - name: references, at most 5 pages, and the committed PDF is the one its text makes
+        run: nix develop --no-update-lock-file --command just chamada-check

@@ -23,6 +23,30 @@ paper research:
 preprint research:
     {{nix}} --command just _paper {{research}} "{{research}}/design-prop.preprint.pdf" design-prop.preprint.md
 
+# The call for contribution and publication (chamada/chamada.md): a text of marola as a whole,
+# not of one research, so it has no logos and no site. Hard rule: at most 5 pages.
+chamada:
+    {{nix}} --command just _chamada chamada/chamada.pdf
+
+_chamada out:
+    mkdir -p "$(dirname "{{out}}")"
+    cd chamada && pandoc chamada.md \
+      --from markdown --citeproc --bibliography refs.bib --metadata link-citations=true \
+      --lua-filter ../format/title.lua \
+      --pdf-engine=xelatex --fail-if-warnings -H ../format/header.tex \
+      -V geometry:margin=2.6cm -V fontsize=11pt -V colorlinks=true \
+      -o "$OLDPWD/{{out}}"
+    pages="$(pdfinfo "{{out}}" | awk '/^Pages/ {print $2}')"; [ "$pages" -le 5 ] || { echo "chamada: {{out}} has $pages pages; the hard rule is at most 5" >&2; exit 1; }
+    @echo "chamada: {{out}} ($(pdfinfo "{{out}}" | awk '/^Pages/ {print $2}') pages)"
+
+# What CI runs for the call: every reference has its row, at most 5 pages, the PDF is current.
+chamada-check:
+    for k in $(grep -oE '^@[a-z]+\{[^,]+' chamada/refs.bib | cut -d'{' -f2); do grep -q "\`$k\`" chamada/REFERENCES.md || { echo "chamada: $k has no row in REFERENCES.md" >&2; exit 1; }; grep -q "@$k\b" chamada/chamada.md || { echo "chamada: $k is in refs.bib and the text does not cite it" >&2; exit 1; }; done
+    {{nix}} --command just _chamada build/chamada/chamada.pdf
+    diff <(pdftotext chamada/chamada.pdf -) <(pdftotext build/chamada/chamada.pdf -) > /dev/null \
+      || { echo "chamada: chamada/chamada.pdf was not made from this text; run just chamada and commit it" >&2; exit 1; }
+    @echo "chamada: every reference has its row, and chamada/chamada.pdf is the one its text makes"
+
 # Render every research's paper.
 papers:
     for r in $(just researches); do just paper "$r"; done
