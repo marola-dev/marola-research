@@ -32,6 +32,7 @@ Each research is numbered as a marola experiment, in the order it was opened.
 | Experiment | Research | What it is | Site | Paper | Status |
 |---|---|---|---|---|---|
 | `marola-experiment-001` | [`marola-bench`](marola-bench/README.md) | a WeatherBench for Brazil: Brazilian regions, wave variables, instruments as the truth | [marola-dev.github.io/marola-research/marola-bench](https://marola-dev.github.io/marola-research/marola-bench/) | [PDF](marola-bench/marola-bench.pdf), [source](marola-bench/paper/paper.md) | a proposal, v0.1.0, DOI [10.5281/zenodo.23352633](https://doi.org/10.5281/zenodo.23352633). No score has been computed |
+| `marola-experiment-002` | [`marola-gpt`](https://github.com/marola-dev/marola-ml#marola-gpt) | a fork of Andrej Karpathy's [nanoGPT](https://github.com/karpathy/nanoGPT), trained from random weights on marola's ocean corpus, [marola-corpus](https://github.com/marola-dev/marola-corpus) | — | — | an experiment, in [marola-ml](https://github.com/marola-dev/marola-ml). No paper and no DOI |
 
 **marola-bench is marola-experiment 001.** Later it will be filed as a case study of how
 marola-research, the tool, improves itself. Each research tests the rules, the checks and the
