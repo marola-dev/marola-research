@@ -81,7 +81,7 @@ Each note is marola.dev's summary of one source. A summary of a CC BY 4.0 articl
 | `temperatura-do-mar-e-corrente-do-brasil.md` | Rev. Bras. Geogr. Física 13(6), 2020, [doi:10.26848/rbgf.v13.6.p2531-2552](https://doi.org/10.26848/rbgf.v13.6.p2531-2552) | CC BY 4.0 | Marilia Mitidieri Fernandes de Oliveira, Jorge Luiz Fernandes de Oliveira, Pedro José Farias Fernandes, Nelson Francisco Favilla Ebecken; marola.dev |
 | `labeco-previsao-de-ondas-ww3.md` | LabECO/UFSC, the proposal in [ww3-gpu](https://github.com/h0ffmann/ww3-gpu/tree/main/pubs/proposal) (MIT) | MIT | Matheus Hoffmann; marola.dev |
 | `inpo-edital-de-chamamento.md` | INPO, MCTI's call, [Diário Oficial da União](https://www.in.gov.br/web/dou/-/edital-de-chamamento-publico-n-31/2021-346703585) (an official act) | MIT | marola.dev |
-| `inpo-organizacao-social.md` | INPO, [Decreto 11.275/2022](https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2022/decreto/D11275.htm) (an official act) | MIT | marola.dev |
+| `inpo-organizacao-social.md` | INPO, [Decreto 11.275/2022](https://www.lexml.gov.br/urn/urn:lex:br:federal:decreto:2022-12-06;11275) (an official act) | MIT | marola.dev |
 
 Not a research: [`chamada/`](chamada/README.md), *Marola: Chamada para CONTRIBUIÇÃO e
 PUBLICAÇÃO* ([PDF](chamada/chamada.pdf), at most 5 pages). It is a call in easy Brazilian
