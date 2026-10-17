@@ -33,7 +33,7 @@ Each research is numbered as a marola experiment, in the order it was opened.
 |---|---|---|---|---|---|
 | `marola-experiment-001` | [`marola-bench`](marola-bench/README.md) | a WeatherBench for Brazil: Brazilian regions, wave variables, instruments as the truth | [marola-dev.github.io/marola-research/marola-bench](https://marola-dev.github.io/marola-research/marola-bench/) | [PDF](marola-bench/marola-bench.pdf), [source](marola-bench/paper/paper.md) | a proposal, v0.1.0, DOI [10.5281/zenodo.23352633](https://doi.org/10.5281/zenodo.23352633). No score has been computed |
 | `marola-experiment-002` | [`marola-gpt`](https://github.com/marola-dev/marola-ml#marola-gpt) | a LoRA adapter over [Tucano-2b4](https://huggingface.co/TucanoBR/Tucano-2b4), an open model trained from scratch in Brazilian Portuguese, trained on marola's ocean corpus, [marola-corpus](https://github.com/marola-dev/marola-corpus) ([base, corpus and licences](#marola-gpt-its-base-and-its-corpus)) | — | — | an experiment, in [marola-ml](https://github.com/marola-dev/marola-ml). On Hugging Face: 0.0.1, the old nanoGPT; 0.1.0, the first on Tucano, is not published. No paper and no DOI |
-| `marola-experiment-003` | [`ww3-gpu`](https://github.com/h0ffmann/ww3-gpu) | WAVEWATCH III's DIA nonlinear source term (`W3SNL1`) ported to C++/Kokkos and checked bit for bit against the Fortran with WW3's own regtests; [ww3-dia-gpu-v2](https://github.com/h0ffmann/ww3-dia-gpu-v2) against [ww3-dia-gpu](https://github.com/h0ffmann/ww3-dia-gpu) ([method and comparison](#ww3-gpu-the-dia-on-a-gpu-without-changing-the-answer)) | [h0ffmann.github.io/ww3-gpu](https://h0ffmann.github.io/ww3-gpu/) | — | an experiment, in [ww3-gpu](https://github.com/h0ffmann/ww3-gpu). CPU only: 125 of 125 `NL1` regtest entries byte-identical; the 311-entry run is not recorded. No paper and no DOI yet: to be published later |
+| `marola-experiment-003` | [`ww3-gpu`](https://github.com/h0ffmann/ww3-gpu) | WAVEWATCH III's Fortran ported to C++20/Kokkos and checked bit for bit against the Fortran with WW3's own regtests, starting with the DIA nonlinear source term (`W3SNL1`); [ww3-dia-gpu-v2](https://github.com/h0ffmann/ww3-dia-gpu-v2) against [ww3-dia-gpu](https://github.com/h0ffmann/ww3-dia-gpu) ([method and comparison](#ww3-gpu-the-dia-on-a-gpu-without-changing-the-answer)) | [h0ffmann.github.io/ww3-gpu](https://h0ffmann.github.io/ww3-gpu/); [ww3-dia-gpu](https://github.com/h0ffmann/ww3-dia-gpu), [ww3-dia-gpu-v2](https://github.com/h0ffmann/ww3-dia-gpu-v2) | [PDF](https://github.com/h0ffmann/ww3-gpu/blob/f83aa0c/pdf/ww3-lab-course.pdf), DOI [10.5281/zenodo.23221351](https://doi.org/10.5281/zenodo.23221351) | an experiment, in [ww3-gpu](https://github.com/h0ffmann/ww3-gpu). **20.12 %** of WW3's Fortran translated to C++20/Kokkos: 53 004 of 263 375 lines of `model/src` |
 
 **marola-bench is marola-experiment 001.** Later it will be filed as a case study of how
 marola-research, the tool, improves itself. Each research tests the rules, the checks and the
@@ -148,10 +148,16 @@ ww3-gpu's
 The two speeds are not comparable: other GPUs, a fraction of the work per bin in v1, and neither
 is a speed-up of WW3.
 
-**No DOI yet.** marola-experiment-003 has no paper and no DOI; it will be published later.
-ww3-gpu, the lab and its book, has its own concept DOI,
-[10.5281/zenodo.23221351](https://doi.org/10.5281/zenodo.23221351); it does not cover this
-experiment as a research of marola-research.
+**How far the translation is.** Of WW3's Fortran (`model/src` at `WW3@03adda91`), 53 004 of
+263 375 lines, 20.12 %, have a C++20/Kokkos translation: 293 of 1 023 routines, in 56 of 147
+files. WW3 calls the Kokkos code for 3 082 lines (1.17 %), and WW3's regtests have passed on 663
+of them (0.25 %), the DIA. The port is 44 911 lines of C++ in 313 files. ww3-gpu's
+`scripts/port_score.py --write` writes these numbers into
+[`PORT_STATUS.md`](https://github.com/h0ffmann/ww3-gpu/blob/f83aa0c/kokkos/PORT_STATUS.md).
+
+**Cite.** ww3-gpu, the lab and its book, is cited by its concept DOI,
+[10.5281/zenodo.23221351](https://doi.org/10.5281/zenodo.23221351). ww3-dia-gpu-v2 has no DOI yet;
+it will be published later.
 
 Not a research: [`chamada/`](chamada/README.md), *Marola: Chamada para CONTRIBUIÇÃO e
 PUBLICAÇÃO* ([PDF](chamada/chamada.pdf), at most 5 pages). It is a call in easy Brazilian
