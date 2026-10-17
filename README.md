@@ -7,7 +7,7 @@
 <sub>since 2026 · the science of <a href="https://github.com/marola-dev/marola">marola</a> · <a href="https://marola-dev.github.io/marola-research/">the sites</a> · <a href="#researches">researches</a> · <a href="#a-new-paper-explained-like-you-are-five">a new paper</a> · <a href="#discipline-from-the-root-freedom-in-a-research">overrides</a> · <a href="#cite">cite</a></sub>
 
 [![since 2026](https://img.shields.io/badge/since-2026-1682D4?style=flat-square)](#history)
-[![experiments: 1](https://img.shields.io/badge/experiments-1-F2B705?style=flat-square)](#researches)
+[![experiments: 3](https://img.shields.io/badge/experiments-3-F2B705?style=flat-square)](#researches)
 [![marola-bench: DOI 10.5281/zenodo.23352633](https://img.shields.io/badge/marola--bench-10.5281%2Fzenodo.23352633-1682D4?style=flat-square)](https://doi.org/10.5281/zenodo.23352633)
 [![pdf](https://img.shields.io/github/actions/workflow/status/marola-dev/marola-research/pdf.yml?branch=main&label=pdf&style=flat-square)](https://github.com/marola-dev/marola-research/actions/workflows/pdf.yml)
 [![.md](https://img.shields.io/github/actions/workflow/status/marola-dev/marola-research/md.yml?branch=main&label=.md&style=flat-square)](https://github.com/marola-dev/marola-research/actions/workflows/md.yml)
@@ -66,7 +66,10 @@ back to the root. The study is not written yet.
 
 marola-gpt lives in marola-ml. This index points to it; no directory here holds it.
 
-**The base model.** Since 0.1.0, marola-gpt is
+<details>
+<summary>The base model</summary>
+
+Since 0.1.0, marola-gpt is
 [Tucano-2b4](https://huggingface.co/TucanoBR/Tucano-2b4) at revision `b8def49a1931` with a LoRA
 adapter (r=8 on `q_proj` and `v_proj`) that marola trains. Tucano-2b4 has 2.44 billion
 parameters. Its authors are Nicholas Kluge Corrêa, Aniket Sen, Sophia Falk and Shiza Fatimah,
@@ -78,7 +81,12 @@ A work that uses marola-gpt cites Tucano too. The 0.0.x releases were a fork of 
 Karpathy's [nanoGPT](https://github.com/karpathy/nanoGPT), trained from random weights. On 15
 October 2026, `huggingface.co/h0ffmann/marola-gpt` had one tag, `v0.0.1`.
 
-**The corpus.** marola-gpt trains on the marola-corpus tag that marola-ml pins in
+</details>
+
+<details>
+<summary>The corpus</summary>
+
+marola-gpt trains on the marola-corpus tag that marola-ml pins in
 `corpus.version`, today `v0.1.0`. marola-corpus `main` at
 [`355bf83`](https://github.com/marola-dev/marola-corpus/tree/355bf83) adds 12 notes in Portuguese
 from Brazilian oceanography institutes and from papers under an open licence
@@ -106,6 +114,8 @@ Each note is marola.dev's summary of one source. A summary of a CC BY 4.0 articl
 | `inpo-edital-de-chamamento.md` | INPO, MCTI's call, [Diário Oficial da União](https://www.in.gov.br/web/dou/-/edital-de-chamamento-publico-n-31/2021-346703585) (an official act) | MIT | marola.dev |
 | `inpo-organizacao-social.md` | INPO, [Decreto 11.275/2022](https://www.lexml.gov.br/urn/urn:lex:br:federal:decreto:2022-12-06;11275) (an official act) | MIT | marola.dev |
 
+</details>
+
 ### ww3-gpu: the DIA on a GPU without changing the answer
 
 - **Experiment:** `marola-experiment-003`, in [ww3-gpu](https://github.com/h0ffmann/ww3-gpu)
@@ -124,7 +134,10 @@ ww3-gpu lives in its own repository. This index points to it; no directory here 
 Read on 17 October 2026 at
 [`f83aa0c`](https://github.com/h0ffmann/ww3-gpu/tree/f83aa0c).
 
-**What it is.** The discrete interaction approximation (DIA) of WAVEWATCH III® (WW3), `W3SNL1`
+<details>
+<summary>What it is</summary>
+
+The discrete interaction approximation (DIA) of WAVEWATCH III® (WW3), `W3SNL1`
 with its table builder `INSNL1` (`model/src/w3snl1md.F90:115-786` at `WW3@6d1bcdfe`),
 translated to C++ with Kokkos, one source for Serial, OpenMP and CUDA. WW3's own `W3SRCE` calls
 it through a `bind(C)` shim on the fork `h0ffmann/WW3`, behind the `KOKKOS` switch, and
@@ -132,7 +145,12 @@ it through a `bind(C)` shim on the fork `h0ffmann/WW3`, behind the `KOKKOS` swit
 [`kokkos/`](https://github.com/h0ffmann/ww3-gpu/tree/f83aa0c/kokkos); its record is the
 [port report](https://github.com/h0ffmann/ww3-gpu/blob/f83aa0c/kokkos/port_report/W3SNL1_KOKKOS.md).
 
-**The method.** The rules are ww3-gpu's
+</details>
+
+<details>
+<summary>The method</summary>
+
+The rules are ww3-gpu's
 [`AGENTS.md`](https://github.com/h0ffmann/ww3-gpu/blob/f83aa0c/AGENTS.md):
 
 - translate, don't improve: each line of the Fortran in the same order, `float` for WW3's
@@ -149,7 +167,12 @@ it through a `bind(C)` shim on the fork `h0ffmann/WW3`, behind the `KOKKOS` swit
 - no timing without parity: a speed figure enters a table only after the regtest replay passed
   on the same commit.
 
-**What is measured.** On an i9-14900, CPU only, each regtest entry ran twice from one executable:
+</details>
+
+<details>
+<summary>What is measured</summary>
+
+On an i9-14900, CPU only, each regtest entry ran twice from one executable:
 once with the Fortran DIA, once with the Kokkos DIA. WW3's `test.comp` compared the outputs byte for
 byte. The 100 serial `NL1` entries of WW3's `matrix.base` had 0 differing files
 ([record](https://github.com/h0ffmann/ww3-gpu/blob/f83aa0c/docs/data/hoff_matrix_2026-10-15.tsv)),
@@ -162,7 +185,11 @@ in 24.96 ms on one core and 0.047 ms on an RTX 4090. Through the shim, with the 
 25.88 ms and 0.75 ms ([`PORT_STATUS.md`](https://github.com/h0ffmann/ww3-gpu/blob/f83aa0c/kokkos/PORT_STATUS.md)).
 Neither number is a speed-up of WW3.
 
-**ww3-dia-gpu against ww3-dia-gpu-v2.**
+</details>
+
+<details>
+<summary>ww3-dia-gpu against ww3-dia-gpu-v2</summary>
+
 [ww3-dia-gpu](https://github.com/h0ffmann/ww3-dia-gpu) (v1) is the owner's fork, with no file
 changed, of [consigcody94/ww3-dia-gpu](https://github.com/consigcody94/ww3-dia-gpu) at `38919d2`:
 a CUDA benchmark proposed to NOAA in March 2026 (BSD-3-Clause).
@@ -182,12 +209,19 @@ ww3-gpu's
 The two speeds are not comparable: other GPUs, a fraction of the work per bin in v1, and neither
 is a speed-up of WW3.
 
-**How far the translation is.** Of WW3's Fortran (`model/src` at `WW3@03adda91`), 53 004 of
+</details>
+
+<details>
+<summary>How far the translation is</summary>
+
+Of WW3's Fortran (`model/src` at `WW3@03adda91`), 53 004 of
 263 375 lines, 20.12 %, have a C++20/Kokkos translation: 293 of 1 023 routines, in 56 of 147
 files. WW3 calls the Kokkos code for 3 082 lines (1.17 %), and WW3's regtests have passed on 663
 of them (0.25 %), the DIA. The port is 44 911 lines of C++ in 313 files. ww3-gpu's
 `scripts/port_score.py --write` writes these numbers into
 [`PORT_STATUS.md`](https://github.com/h0ffmann/ww3-gpu/blob/f83aa0c/kokkos/PORT_STATUS.md).
+
+</details>
 
 **Cite.** ww3-gpu, the lab and its book, is cited by its concept DOI,
 [10.5281/zenodo.23221351](https://doi.org/10.5281/zenodo.23221351). ww3-dia-gpu-v2 has no DOI yet;
@@ -313,6 +347,9 @@ every chat in it shares. You do not install anything. Claude reads the repositor
 rules, writes with you, and proposes the change as a pull request; CI runs the checks you would
 run by hand.
 
+<details>
+<summary>The five steps</summary>
+
 1. **Make the project** on claude.ai, and add the repository `marola-dev/marola-research`. Add
    `h0ffmann/picasso` too: the flake reads its labs. marola's own project file records that a
    session got "403" from GitHub for a flake input outside the project's repositories
@@ -326,6 +363,8 @@ run by hand.
 4. **Read the pull request's checks.** When `pdf`, `.md` or `site` fails, paste the failure into
    the chat and ask for a fix. Do not ask it to skip a check.
 5. **Read the PDF** that the pull request renders before you merge.
+
+</details>
 
 This way of working has not been tried yet with this repository. The steps come from marola's
 project, which runs the same way.
@@ -354,6 +393,9 @@ skill has no evals yet.
 marola-research was minted by the owner's other repositories. Its rules are theirs, each read
 at a commit ([`ouro-paper`](.claude/skills/ouro-paper/SKILL.md), "Sources"):
 
+<details>
+<summary>The four repositories and what each gave</summary>
+
 | Repository | DOI | What it gave |
 |---|---|---|
 | [h0ffmann/closed-source](https://github.com/h0ffmann/closed-source) | [10.5281/zenodo.23333656](https://doi.org/10.5281/zenodo.23333656) | humans steer; never invent a reference; borrow, cite, propagate; the reference log; the easy pt-BR version |
@@ -361,11 +403,18 @@ at a commit ([`ouro-paper`](.claude/skills/ouro-paper/SKILL.md), "Sources"):
 | [h0ffmann/picasso](https://github.com/h0ffmann/picasso) | [10.5281/zenodo.23311208](https://doi.org/10.5281/zenodo.23311208) | a pinned toolchain (the labs this flake reads); `.zenodo.json` as the one hand-edited citation file; the shape of this README |
 | [marola-dev/marola](https://github.com/marola-dev/marola) | [10.5281/zenodo.23224155](https://doi.org/10.5281/zenodo.23224155) | design first, in a MIP; the release chain; "a DOI cannot be deleted" |
 
+</details>
+
+<details>
+<summary>When it happened, pull request by pull request</summary>
+
 | When | Pull requests | What happened |
 |---|---|---|
 | 2026-10-10 | none | the first commit |
 | 2026-10-13 | [#2](https://github.com/marola-dev/marola-research/pull/2)–[#6](https://github.com/marola-dev/marola-research/pull/6) | one directory for each research; the `ouro-paper` skill; marola-bench, its site, notes and journal; its v0.1.0 and its DOI; other people's skills by link |
 | 2026-10-14 | [#8](https://github.com/marola-dev/marola-research/pull/8), [#9](https://github.com/marola-dev/marola-research/pull/9) | marola-bench's hard rule 7 and its design in pictures; the call for contribution, `chamada/` |
+
+</details>
 
 ## Cite
 
@@ -403,6 +452,9 @@ are Bruno Valério's. These are the public repositories of
 [ouroboric-dev](https://github.com/ouroboric-dev), each with the description its owner gave it,
 read from GitHub on 13 October 2026.
 
+<details>
+<summary>The ouroboric-dev repositories, in their owners' words</summary>
+
 | Repository | In its owner's words |
 |---|---|
 | [ouroboric](https://github.com/ouroboric-dev/ouroboric) | Ouroboric: open factories that improve themselves. Charter, standards, journal and brand. |
@@ -416,6 +468,8 @@ read from GitHub on 13 October 2026.
 | [realm-web](https://github.com/ouroboric-dev/realm-web) | The web realm: graph, prompts, devcontainer stack layer, templates and checks. |
 | [ouroboric-packages](https://github.com/ouroboric-dev/ouroboric-packages) | The official ouroboric packages on PyPI and crates.io: they identify the project and hold its name |
 | [.github](https://github.com/ouroboric-dev/.github) | Organisation profile and defaults for Ouroboric. |
+
+</details>
 
 What this repository takes from them, and where: the working rules in
 [`ouro-paper`](.claude/skills/ouro-paper/SKILL.md) (its "Sources"), the journal's six headings
