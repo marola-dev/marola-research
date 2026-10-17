@@ -29,18 +29,40 @@ and [marola](https://github.com/marola-dev/marola) ([history](#history)).
 
 Each research is numbered as a marola experiment, in the order it was opened.
 
-| Experiment | Research | What it is | Site | Paper | Status |
-|---|---|---|---|---|---|
-| `marola-experiment-001` | [`marola-bench`](marola-bench/README.md) | a WeatherBench for Brazil: Brazilian regions, wave variables, instruments as the truth | [marola-dev.github.io/marola-research/marola-bench](https://marola-dev.github.io/marola-research/marola-bench/) | [PDF](marola-bench/marola-bench.pdf), [source](marola-bench/paper/paper.md) | a proposal, v0.1.0, DOI [10.5281/zenodo.23352633](https://doi.org/10.5281/zenodo.23352633). No score has been computed |
-| `marola-experiment-002` | [`marola-gpt`](https://github.com/marola-dev/marola-ml#marola-gpt) | a LoRA adapter over [Tucano-2b4](https://huggingface.co/TucanoBR/Tucano-2b4), an open model trained from scratch in Brazilian Portuguese, trained on marola's ocean corpus, [marola-corpus](https://github.com/marola-dev/marola-corpus) ([base, corpus and licences](#marola-gpt-its-base-and-its-corpus)) | — | — | an experiment, in [marola-ml](https://github.com/marola-dev/marola-ml). On Hugging Face: 0.0.1, the old nanoGPT; 0.1.0, the first on Tucano, is not published. No paper and no DOI |
-| `marola-experiment-003` | [`ww3-gpu`](https://github.com/h0ffmann/ww3-gpu) | WAVEWATCH III's Fortran ported to C++20/Kokkos and checked bit for bit against the Fortran with WW3's own regtests, starting with the DIA nonlinear source term (`W3SNL1`); [ww3-dia-gpu-v2](https://github.com/h0ffmann/ww3-dia-gpu-v2) against [ww3-dia-gpu](https://github.com/h0ffmann/ww3-dia-gpu) ([method and comparison](#ww3-gpu-the-dia-on-a-gpu-without-changing-the-answer)) | [h0ffmann.github.io/ww3-gpu](https://h0ffmann.github.io/ww3-gpu/); [ww3-dia-gpu](https://github.com/h0ffmann/ww3-dia-gpu), [ww3-dia-gpu-v2](https://github.com/h0ffmann/ww3-dia-gpu-v2) | [PDF](https://github.com/h0ffmann/ww3-gpu/blob/f83aa0c/pdf/ww3-lab-course.pdf), DOI [10.5281/zenodo.23221351](https://doi.org/10.5281/zenodo.23221351) | an experiment, in [ww3-gpu](https://github.com/h0ffmann/ww3-gpu). **20.12 %** of WW3's Fortran translated to C++20/Kokkos: 53 004 of 263 375 lines of `model/src` |
+| # | Research | What it is | Status |
+|---|---|---|---|
+| 001 | [marola-bench](#marola-bench-a-weatherbench-for-brazil) | a WeatherBench for Brazil | a proposal, v0.1.0, [DOI](https://doi.org/10.5281/zenodo.23352633) |
+| 002 | [marola-gpt](#marola-gpt-its-base-and-its-corpus) | a LoRA adapter over Tucano-2b4, on marola's ocean corpus | 0.1.0 not published; no DOI |
+| 003 | [ww3-gpu](#ww3-gpu-the-dia-on-a-gpu-without-changing-the-answer) | WAVEWATCH III in C++20/Kokkos, bit for bit with the Fortran | 20.12 % translated, [DOI](https://doi.org/10.5281/zenodo.23221351) |
 
-**marola-bench is marola-experiment 001.** Later it will be filed as a case study of how
-marola-research, the tool, improves itself. Each research tests the rules, the checks and the
-skill of this repository. What a research finds goes back to the root. The study is not written
-yet.
+Each experiment is `marola-experiment-NNN`. Its block below has its links, its status and its
+details.
+
+### marola-bench, a WeatherBench for Brazil
+
+- **Experiment:** `marola-experiment-001`, in this repository:
+  [`marola-bench/`](marola-bench/README.md)
+- **What it is:** a WeatherBench for Brazil: Brazilian regions, wave variables, instruments as
+  the truth
+- **Site:** [marola-dev.github.io/marola-research/marola-bench](https://marola-dev.github.io/marola-research/marola-bench/)
+- **Paper:** [PDF](marola-bench/marola-bench.pdf), [source](marola-bench/paper/paper.md)
+- **Status:** a proposal, v0.1.0, DOI
+  [10.5281/zenodo.23352633](https://doi.org/10.5281/zenodo.23352633). No score has been computed
+
+Later it will be filed as a case study of how marola-research, the tool, improves itself. Each
+research tests the rules, the checks and the skill of this repository. What a research finds goes
+back to the root. The study is not written yet.
 
 ### marola-gpt, its base and its corpus
+
+- **Experiment:** `marola-experiment-002`, in
+  [marola-ml](https://github.com/marola-dev/marola-ml#marola-gpt)
+- **What it is:** a LoRA adapter over [Tucano-2b4](https://huggingface.co/TucanoBR/Tucano-2b4), an
+  open model trained from scratch in Brazilian Portuguese, trained on marola's ocean corpus,
+  [marola-corpus](https://github.com/marola-dev/marola-corpus)
+- **Site and paper:** none
+- **Status:** on Hugging Face, 0.0.1 is the old nanoGPT; 0.1.0, the first on Tucano, is not
+  published. No paper and no DOI
 
 marola-gpt lives in marola-ml. This index points to it; no directory here holds it.
 
@@ -85,6 +107,18 @@ Each note is marola.dev's summary of one source. A summary of a CC BY 4.0 articl
 | `inpo-organizacao-social.md` | INPO, [Decreto 11.275/2022](https://www.lexml.gov.br/urn/urn:lex:br:federal:decreto:2022-12-06;11275) (an official act) | MIT | marola.dev |
 
 ### ww3-gpu: the DIA on a GPU without changing the answer
+
+- **Experiment:** `marola-experiment-003`, in [ww3-gpu](https://github.com/h0ffmann/ww3-gpu)
+- **What it is:** WAVEWATCH III's Fortran ported to C++20/Kokkos and checked bit for bit against
+  the Fortran with WW3's own regtests, starting with the DIA nonlinear source term (`W3SNL1`)
+- **Repositories:** [ww3-gpu](https://github.com/h0ffmann/ww3-gpu),
+  [ww3-dia-gpu](https://github.com/h0ffmann/ww3-dia-gpu),
+  [ww3-dia-gpu-v2](https://github.com/h0ffmann/ww3-dia-gpu-v2)
+- **Site:** [h0ffmann.github.io/ww3-gpu](https://h0ffmann.github.io/ww3-gpu/)
+- **Paper:** [PDF](https://github.com/h0ffmann/ww3-gpu/blob/f83aa0c/pdf/ww3-lab-course.pdf), DOI
+  [10.5281/zenodo.23221351](https://doi.org/10.5281/zenodo.23221351)
+- **Status:** **20.12 %** of WW3's Fortran translated to C++20/Kokkos, 53 004 of 263 375 lines of
+  `model/src`
 
 ww3-gpu lives in its own repository. This index points to it; no directory here holds it.
 Read on 17 October 2026 at
