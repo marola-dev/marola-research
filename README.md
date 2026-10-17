@@ -33,6 +33,7 @@ Each research is numbered as a marola experiment, in the order it was opened.
 |---|---|---|---|---|---|
 | `marola-experiment-001` | [`marola-bench`](marola-bench/README.md) | a WeatherBench for Brazil: Brazilian regions, wave variables, instruments as the truth | [marola-dev.github.io/marola-research/marola-bench](https://marola-dev.github.io/marola-research/marola-bench/) | [PDF](marola-bench/marola-bench.pdf), [source](marola-bench/paper/paper.md) | a proposal, v0.1.0, DOI [10.5281/zenodo.23352633](https://doi.org/10.5281/zenodo.23352633). No score has been computed |
 | `marola-experiment-002` | [`marola-gpt`](https://github.com/marola-dev/marola-ml#marola-gpt) | a LoRA adapter over [Tucano-2b4](https://huggingface.co/TucanoBR/Tucano-2b4), an open model trained from scratch in Brazilian Portuguese, trained on marola's ocean corpus, [marola-corpus](https://github.com/marola-dev/marola-corpus) ([base, corpus and licences](#marola-gpt-its-base-and-its-corpus)) | — | — | an experiment, in [marola-ml](https://github.com/marola-dev/marola-ml). On Hugging Face: 0.0.1, the old nanoGPT; 0.1.0, the first on Tucano, is not published. No paper and no DOI |
+| `marola-experiment-003` | [`ww3-gpu`](https://github.com/h0ffmann/ww3-gpu) | WAVEWATCH III's DIA nonlinear source term (`W3SNL1`) ported to C++/Kokkos and checked bit for bit against the Fortran with WW3's own regtests; [ww3-dia-gpu-v2](https://github.com/h0ffmann/ww3-dia-gpu-v2) against [ww3-dia-gpu](https://github.com/h0ffmann/ww3-dia-gpu) ([method and comparison](#ww3-gpu-the-dia-on-a-gpu-without-changing-the-answer)) | [h0ffmann.github.io/ww3-gpu](https://h0ffmann.github.io/ww3-gpu/) | — | an experiment, in [ww3-gpu](https://github.com/h0ffmann/ww3-gpu). CPU only: 125 of 125 `NL1` regtest entries byte-identical; the 311-entry run is not recorded. No paper and no DOI yet: to be published later |
 
 **marola-bench is marola-experiment 001.** Later it will be filed as a case study of how
 marola-research, the tool, improves itself. Each research tests the rules, the checks and the
@@ -82,6 +83,75 @@ Each note is marola.dev's summary of one source. A summary of a CC BY 4.0 articl
 | `labeco-previsao-de-ondas-ww3.md` | LabECO/UFSC, the proposal in [ww3-gpu](https://github.com/h0ffmann/ww3-gpu/tree/main/pubs/proposal) (MIT) | MIT | Matheus Hoffmann; marola.dev |
 | `inpo-edital-de-chamamento.md` | INPO, MCTI's call, [Diário Oficial da União](https://www.in.gov.br/web/dou/-/edital-de-chamamento-publico-n-31/2021-346703585) (an official act) | MIT | marola.dev |
 | `inpo-organizacao-social.md` | INPO, [Decreto 11.275/2022](https://www.lexml.gov.br/urn/urn:lex:br:federal:decreto:2022-12-06;11275) (an official act) | MIT | marola.dev |
+
+### ww3-gpu: the DIA on a GPU without changing the answer
+
+ww3-gpu lives in its own repository. This index points to it; no directory here holds it.
+Read on 17 October 2026 at
+[`f83aa0c`](https://github.com/h0ffmann/ww3-gpu/tree/f83aa0c).
+
+**What it is.** The discrete interaction approximation (DIA) of WAVEWATCH III® (WW3), `W3SNL1`
+with its table builder `INSNL1` (`model/src/w3snl1md.F90:115-786` at `WW3@6d1bcdfe`),
+translated to C++ with Kokkos, one source for Serial, OpenMP and CUDA. WW3's own `W3SRCE` calls
+it through a `bind(C)` shim on the fork `h0ffmann/WW3`, behind the `KOKKOS` switch, and
+`WW_KOKKOS_SNL1=0|1` picks the Fortran or the Kokkos DIA in one executable. The code is under
+[`kokkos/`](https://github.com/h0ffmann/ww3-gpu/tree/f83aa0c/kokkos); its record is the
+[port report](https://github.com/h0ffmann/ww3-gpu/blob/f83aa0c/kokkos/port_report/W3SNL1_KOKKOS.md).
+
+**The method.** The rules are ww3-gpu's
+[`AGENTS.md`](https://github.com/h0ffmann/ww3-gpu/blob/f83aa0c/AGENTS.md):
+
+- translate, don't improve: each line of the Fortran in the same order, `float` for WW3's
+  `REAL`, no algebraic rewrite;
+- bit for bit with the Fortran of the same WW3 executable, never a widened tolerance; the
+  reference is the `-O3` build, so `AF11 = (SIG*TPIINV)**11` follows gfortran's `-O3` power
+  chain, found in WW3's optimised GIMPLE
+  ([log](https://github.com/h0ffmann/ww3-gpu/blob/f83aa0c/docs/log/2026-10-14-snl1-bitwise-af11.md));
+- no floating-point contraction: `-ffp-contract=off` on the CPU, `--fmad=false` on CUDA;
+- the port has no tests of its own: WW3's regtests are its tests
+  ([ADR-0010](https://github.com/h0ffmann/ww3-gpu/blob/f83aa0c/docs/ADRs/ADR-0010-kokkos-validated-by-ww3-regtests-only.md)),
+  run at checkpoints
+  ([ADR-0011](https://github.com/h0ffmann/ww3-gpu/blob/f83aa0c/docs/ADRs/ADR-0011-port-in-units-regtest-at-checkpoints.md));
+- no timing without parity: a speed figure enters a table only after the regtest replay passed
+  on the same commit.
+
+**What is measured.** On an i9-14900, CPU only, each regtest entry ran twice from one executable:
+once with the Fortran DIA, once with the Kokkos DIA. WW3's `test.comp` compared the outputs byte for
+byte. The 100 serial `NL1` entries of WW3's `matrix.base` had 0 differing files
+([record](https://github.com/h0ffmann/ww3-gpu/blob/f83aa0c/docs/data/hoff_matrix_2026-10-15.tsv)),
+and so did the 25 shared-memory OpenMP entries
+([record](https://github.com/h0ffmann/ww3-gpu/blob/f83aa0c/docs/data/hoff_matrix_omp_2026-10-15.tsv)).
+The run of all 311 `NL1` entries (serial, OpenMP, MPI, PDLIB, `ww3_multi`) was in progress on 15
+October 2026; ww3-gpu has no record of it at `f83aa0c`. Nothing has run inside WW3 on a GPU: that
+run needs the owner. On 15 September 2026, 1 000 points per call, NK=25 and NTH=24, the kernel ran
+in 24.96 ms on one core and 0.047 ms on an RTX 4090. Through the shim, with the copies, it ran in
+25.88 ms and 0.75 ms ([`PORT_STATUS.md`](https://github.com/h0ffmann/ww3-gpu/blob/f83aa0c/kokkos/PORT_STATUS.md)).
+Neither number is a speed-up of WW3.
+
+**ww3-dia-gpu against ww3-dia-gpu-v2.**
+[ww3-dia-gpu](https://github.com/h0ffmann/ww3-dia-gpu) (v1) is the owner's fork, with no file
+changed, of [consigcody94/ww3-dia-gpu](https://github.com/consigcody94/ww3-dia-gpu) at `38919d2`:
+a CUDA benchmark proposed to NOAA in March 2026 (BSD-3-Clause).
+[ww3-dia-gpu-v2](https://github.com/h0ffmann/ww3-dia-gpu-v2) (v2, MIT) documents ww3-gpu's port and
+compares the two; it copies no code. The comparison, section by section of the Fortran, is
+ww3-gpu's
+[`docs/W3SNL1_GPU_COMPARISON_202610.md`](https://github.com/h0ffmann/ww3-gpu/blob/f83aa0c/docs/W3SNL1_GPU_COMPARISON_202610.md).
+
+| | v1, ww3-dia-gpu | v2, ww3-dia-gpu-v2 |
+|---|---|---|
+| What it computes | `SA1`, `SA2`: part of section 3 of `W3SNL1`, on synthetic inputs | all of `W3SNL1` and `INSNL1`: the source `S` and the diagonal `D` |
+| Called by WW3 | no: a stand-alone benchmark | yes, from `W3SRCE`, behind the `KOKKOS` switch |
+| "Bit-identical" against | itself, in another loop order | the Fortran DIA, in the same WW3 executable |
+| WW3 regtest entries | 0 runnable | 125 of 125 byte-identical (100 serial, 25 OpenMP) |
+| Published speed | 16.8x, one layout against another on one RTX 3060 | 34x through the shim against one core, RTX 4090 |
+
+The two speeds are not comparable: other GPUs, a fraction of the work per bin in v1, and neither
+is a speed-up of WW3.
+
+**No DOI yet.** marola-experiment-003 has no paper and no DOI; it will be published later.
+ww3-gpu, the lab and its book, has its own concept DOI,
+[10.5281/zenodo.23221351](https://doi.org/10.5281/zenodo.23221351); it does not cover this
+experiment as a research of marola-research.
 
 Not a research: [`chamada/`](chamada/README.md), *Marola: Chamada para CONTRIBUIÇÃO e
 PUBLICAÇÃO* ([PDF](chamada/chamada.pdf), at most 5 pages). It is a call in easy Brazilian
