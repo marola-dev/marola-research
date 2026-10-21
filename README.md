@@ -34,7 +34,7 @@ Each research is numbered as a marola experiment, in the order it was opened.
 | 001 | [marola-bench](#marola-bench-a-weatherbench-for-brazil) | a WeatherBench for Brazil | a proposal, v0.1.0, [DOI](https://doi.org/10.5281/zenodo.23352633) |
 | 002 | [marola-gpt](#marola-gpt-its-base-and-its-corpus) | a LoRA adapter over Tucano-2b4, on marola's ocean corpus | 0.1.0 not published; no DOI |
 | 003 | [ww3-gpu](#ww3-gpu-the-dia-on-a-gpu-without-changing-the-answer) | WAVEWATCH III in C++20/Kokkos, bit for bit with the Fortran | 20.12 % translated, [DOI](https://doi.org/10.5281/zenodo.23221351) |
-| 004 | [ptbr-writter](#ptbr-writter-technical-writing-in-brazilian-portuguese-for-agents) | a Claude Code plugin for technical writing in Brazilian Portuguese | v0.1.0 released; no paper, no DOI |
+| 004 | [ptbr-writer](#ptbr-writer-technical-writing-in-brazilian-portuguese-for-agents) | a Claude Code plugin for technical writing in Brazilian Portuguese | v0.1.0 released; no paper, no DOI |
 
 Each experiment is `marola-experiment-NNN`. Its block below has its links, its status and its
 details.
@@ -228,10 +228,10 @@ of them (0.25 %), the DIA. The port is 44 911 lines of C++ in 313 files. ww3-gpu
 [10.5281/zenodo.23221351](https://doi.org/10.5281/zenodo.23221351). ww3-dia-gpu-v2 has no DOI yet;
 it will be published later.
 
-### ptbr-writter: technical writing in Brazilian Portuguese, for agents
+### ptbr-writer: technical writing in Brazilian Portuguese, for agents
 
 - **Experiment:** `marola-experiment-004`, in
-  [ptbr-writter](https://github.com/h0ffmann/ptbr-writer)
+  [ptbr-writer](https://github.com/h0ffmann/ptbr-writer)
 - **What it is:** a Claude Code plugin that rewrites technical text in Brazilian Portuguese for
   one reading: explicit subject, one proposition per sentence, frozen terms. Its goal is to keep
   a repository's documentation in pt-BR and English with fewer tokens
@@ -241,7 +241,7 @@ it will be published later.
   [v0.1.0](https://github.com/h0ffmann/ptbr-writer/releases/tag/v0.1.0), 20 October 2026. No
   paper and no DOI
 
-ptbr-writter lives in its own repository. This index points to it; no directory here holds it.
+ptbr-writer lives in its own repository. This index points to it; no directory here holds it.
 Read on 20 October 2026 at
 [`51b317f`](https://github.com/h0ffmann/ptbr-writer/tree/51b317f).
 
@@ -251,7 +251,7 @@ Read on 20 October 2026 at
 A conceptual fork of
 [kayquer/portugues-tecnico-controlado](https://github.com/kayquer/portugues-tecnico-controlado)
 (PTC, MIT), a controlled Portuguese inspired by ASD-STE100. The plugin has three skills:
-`ptbr-writter` (13 rules, PTW-1 to PTW-13), its alias `ptbr`, and `cientifico` (12 more rules,
+the main skill (13 rules, PTW-1 to PTW-13), its alias `ptbr`, and `cientifico` (12 more rules,
 CIE-1 to CIE-12, for text with sources). A request runs at one of five levels of rigour:
 `estrito`, `descritivo`, `leve`, `científico` and `smart-note`; the last one writes notes for a
 second brain and combines with the others. PTW-1 to PTW-8 come from the PTC; PTW-9 to PTW-13 adapt
@@ -278,7 +278,7 @@ loaded into other people's context.
 
 </details>
 
-**Cite.** ptbr-writter has no DOI yet. Cite the repository at its release tag, and the PTC.
+**Cite.** ptbr-writer has no DOI yet. Cite the repository at its release tag, and the PTC.
 
 Not a research: [`chamada/`](chamada/README.md), *Marola: Chamada para CONTRIBUIÇÃO e
 PUBLICAÇÃO* ([PDF](chamada/chamada.pdf), at most 5 pages). It is a call in easy Brazilian
