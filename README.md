@@ -7,7 +7,7 @@
 <sub>since 2026 · the science of <a href="https://github.com/marola-dev/marola">marola</a> · <a href="https://marola-dev.github.io/marola-research/">the sites</a> · <a href="#researches">researches</a> · <a href="#a-new-paper-explained-like-you-are-five">a new paper</a> · <a href="#discipline-from-the-root-freedom-in-a-research">overrides</a> · <a href="#cite">cite</a></sub>
 
 [![since 2026](https://img.shields.io/badge/since-2026-1682D4?style=flat-square)](#history)
-[![experiments: 3](https://img.shields.io/badge/experiments-3-F2B705?style=flat-square)](#researches)
+[![experiments: 4](https://img.shields.io/badge/experiments-4-F2B705?style=flat-square)](#researches)
 [![marola-bench: DOI 10.5281/zenodo.23352633](https://img.shields.io/badge/marola--bench-10.5281%2Fzenodo.23352633-1682D4?style=flat-square)](https://doi.org/10.5281/zenodo.23352633)
 [![pdf](https://img.shields.io/github/actions/workflow/status/marola-dev/marola-research/pdf.yml?branch=main&label=pdf&style=flat-square)](https://github.com/marola-dev/marola-research/actions/workflows/pdf.yml)
 [![.md](https://img.shields.io/github/actions/workflow/status/marola-dev/marola-research/md.yml?branch=main&label=.md&style=flat-square)](https://github.com/marola-dev/marola-research/actions/workflows/md.yml)
@@ -34,6 +34,7 @@ Each research is numbered as a marola experiment, in the order it was opened.
 | 001 | [marola-bench](#marola-bench-a-weatherbench-for-brazil) | a WeatherBench for Brazil | a proposal, v0.1.0, [DOI](https://doi.org/10.5281/zenodo.23352633) |
 | 002 | [marola-gpt](#marola-gpt-its-base-and-its-corpus) | a LoRA adapter over Tucano-2b4, on marola's ocean corpus | 0.1.0 not published; no DOI |
 | 003 | [ww3-gpu](#ww3-gpu-the-dia-on-a-gpu-without-changing-the-answer) | WAVEWATCH III in C++20/Kokkos, bit for bit with the Fortran | 20.12 % translated, [DOI](https://doi.org/10.5281/zenodo.23221351) |
+| 004 | [ptbr-writter](#ptbr-writter-technical-writing-in-brazilian-portuguese-for-agents) | a Claude Code plugin for technical writing in Brazilian Portuguese | v0.1.0 released; no paper, no DOI |
 
 Each experiment is `marola-experiment-NNN`. Its block below has its links, its status and its
 details.
@@ -226,6 +227,58 @@ of them (0.25 %), the DIA. The port is 44 911 lines of C++ in 313 files. ww3-gpu
 **Cite.** ww3-gpu, the lab and its book, is cited by its concept DOI,
 [10.5281/zenodo.23221351](https://doi.org/10.5281/zenodo.23221351). ww3-dia-gpu-v2 has no DOI yet;
 it will be published later.
+
+### ptbr-writter: technical writing in Brazilian Portuguese, for agents
+
+- **Experiment:** `marola-experiment-004`, in
+  [ptbr-writter](https://github.com/h0ffmann/ptbr-writter)
+- **What it is:** a Claude Code plugin that rewrites technical text in Brazilian Portuguese for
+  one reading: explicit subject, one proposition per sentence, frozen terms. Its goal is to keep
+  a repository's documentation in pt-BR and English with fewer tokens
+- **Site:** [h0ffmann.github.io/ptbr-writter](https://h0ffmann.github.io/ptbr-writter/)
+- **Paper:** none
+- **Status:** the plugin's first release,
+  [v0.1.0](https://github.com/h0ffmann/ptbr-writter/releases/tag/v0.1.0), 20 October 2026. No
+  paper and no DOI
+
+ptbr-writter lives in its own repository. This index points to it; no directory here holds it.
+Read on 20 October 2026 at
+[`51b317f`](https://github.com/h0ffmann/ptbr-writter/tree/51b317f).
+
+<details>
+<summary>What it is</summary>
+
+A conceptual fork of
+[kayquer/portugues-tecnico-controlado](https://github.com/kayquer/portugues-tecnico-controlado)
+(PTC, MIT), a controlled Portuguese inspired by ASD-STE100. The plugin has three skills:
+`ptbr-writter` (13 rules, PTW-1 to PTW-13), its alias `ptbr`, and `cientifico` (12 more rules,
+CIE-1 to CIE-12, for text with sources). A request runs at one of five levels of rigour:
+`estrito`, `descritivo`, `leve`, `científico` and `smart-note`; the last one writes notes for a
+second brain and combines with the others. PTW-1 to PTW-8 come from the PTC; PTW-9 to PTW-13 adapt
+rules of this repository's `ouro-paper` skill and its Vale styles, and of ww3-gpu's `AGENTS.md`. A skill's body holds
+instructions only: the credits are in the
+[README](https://github.com/h0ffmann/ptbr-writter/blob/51b317f/README.md), because a skill is
+loaded into other people's context.
+
+</details>
+
+<details>
+<summary>What is measured</summary>
+
+- The plugin adds about 173 tokens to every session, the descriptions of its three skills, by
+  `claude plugin details` in the repository's `scripts/plugin-smoke.sh`. CI installs the plugin
+  into an empty Claude Code configuration on each change and fails above 300.
+- The regression cases (`claude plugin eval`, three cases at `51b317f`) run only by hand. One
+  case, run once on 20 October 2026, scored 1.00; the suite has not run as a whole ⚠.
+- A `.pdf` output is in review, not in `main`
+  ([#29](https://github.com/h0ffmann/ptbr-writter/pull/29)) ⚠. Its toolchain,
+  picasso's `labs/ptbr-pdf`, is a 206 MiB download and 729 MiB on disk, and ran first in 27 s
+  on a fresh GitHub runner
+  ([run](https://github.com/h0ffmann/ptbr-writter/actions/runs/39515637972)).
+
+</details>
+
+**Cite.** ptbr-writter has no DOI yet. Cite the repository at its release tag, and the PTC.
 
 Not a research: [`chamada/`](chamada/README.md), *Marola: Chamada para CONTRIBUIÇÃO e
 PUBLICAÇÃO* ([PDF](chamada/chamada.pdf), at most 5 pages). It is a call in easy Brazilian
