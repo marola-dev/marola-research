@@ -231,19 +231,19 @@ it will be published later.
 ### ptbr-writter: technical writing in Brazilian Portuguese, for agents
 
 - **Experiment:** `marola-experiment-004`, in
-  [ptbr-writter](https://github.com/h0ffmann/ptbr-writter)
+  [ptbr-writter](https://github.com/h0ffmann/ptbr-writer)
 - **What it is:** a Claude Code plugin that rewrites technical text in Brazilian Portuguese for
   one reading: explicit subject, one proposition per sentence, frozen terms. Its goal is to keep
   a repository's documentation in pt-BR and English with fewer tokens
-- **Site:** [h0ffmann.github.io/ptbr-writter](https://h0ffmann.github.io/ptbr-writter/)
+- **Site:** [h0ffmann.github.io/ptbr-writer](https://h0ffmann.github.io/ptbr-writer/)
 - **Paper:** none
 - **Status:** the plugin's first release,
-  [v0.1.0](https://github.com/h0ffmann/ptbr-writter/releases/tag/v0.1.0), 20 October 2026. No
+  [v0.1.0](https://github.com/h0ffmann/ptbr-writer/releases/tag/v0.1.0), 20 October 2026. No
   paper and no DOI
 
 ptbr-writter lives in its own repository. This index points to it; no directory here holds it.
 Read on 20 October 2026 at
-[`51b317f`](https://github.com/h0ffmann/ptbr-writter/tree/51b317f).
+[`51b317f`](https://github.com/h0ffmann/ptbr-writer/tree/51b317f).
 
 <details>
 <summary>What it is</summary>
@@ -257,7 +257,7 @@ CIE-1 to CIE-12, for text with sources). A request runs at one of five levels of
 second brain and combines with the others. PTW-1 to PTW-8 come from the PTC; PTW-9 to PTW-13 adapt
 rules of this repository's `ouro-paper` skill and its Vale styles, and of ww3-gpu's `AGENTS.md`. A skill's body holds
 instructions only: the credits are in the
-[README](https://github.com/h0ffmann/ptbr-writter/blob/51b317f/README.md), because a skill is
+[README](https://github.com/h0ffmann/ptbr-writer/blob/51b317f/README.md), because a skill is
 loaded into other people's context.
 
 </details>
@@ -271,10 +271,10 @@ loaded into other people's context.
 - The regression cases (`claude plugin eval`, three cases at `51b317f`) run only by hand. One
   case, run once on 20 October 2026, scored 1.00; the suite has not run as a whole ⚠.
 - A `.pdf` output is in review, not in `main`
-  ([#29](https://github.com/h0ffmann/ptbr-writter/pull/29)) ⚠. Its toolchain,
+  ([#29](https://github.com/h0ffmann/ptbr-writer/pull/29)) ⚠. Its toolchain,
   picasso's `labs/ptbr-pdf`, is a 206 MiB download and 729 MiB on disk, and ran first in 27 s
   on a fresh GitHub runner
-  ([run](https://github.com/h0ffmann/ptbr-writter/actions/runs/39515637972)).
+  ([run](https://github.com/h0ffmann/ptbr-writer/actions/runs/39515637972)).
 
 </details>
 
