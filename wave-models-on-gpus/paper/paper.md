@@ -31,7 +31,7 @@ keywords:
   - GPU porting
   - coding agents
 lang: en-US
-related: [REFERENCES.md, refs.bib, ../README.md, ../../.claude/skills/ouro-paper/SKILL.md, "https://github.com/h0ffmann/ww3-gpu/tree/e7996b3/pubs/preprint"]
+related: [REFERENCES.md, refs.bib, ../README.md, ../../.claude/skills/ouro-paper/SKILL.md, "https://github.com/h0ffmann/ww3-gpu/tree/697bd47/pubs/preprint"]
 style: research
 ---
 
@@ -50,7 +50,7 @@ style: research
 > [0000-0002-2019-133X](https://orcid.org/0000-0002-2019-133X).
 >
 > **Where it comes from.** The text is the preprint of h0ffmann/ww3-gpu, `pubs/preprint/` at
-> [`e7996b3`](https://github.com/h0ffmann/ww3-gpu/tree/e7996b3/pubs/preprint), in this
+> [`697bd47`](https://github.com/h0ffmann/ww3-gpu/tree/697bd47/pubs/preprint), in this
 > repository's format. A Portuguese edition in Português Técnico Controlado is
 > [`paper.pt-BR.md`](paper.pt-BR.md).
 
@@ -153,6 +153,19 @@ The CPU results of the whole ww3-gpu runtime, with the resident spectrum, and th
 in its NOAA progress record [@noaarecord]. The DIA port is also published alone as
 ww3-dia-gpu-v2 [@diagpuv2]. That repository compares the port with an earlier CUDA kernel of the
 same routine.
+
+Figure 1 shows the four runtimes. ww3-gpu has three, all behind one script,
+`scripts/ww3-gpu.sh`. `--ww3` builds pure NOAA WW3 from `WW3-noaa/` and is the reference.
+`--ww3-gpu` builds the fork with the KOKKOS switch and links the Kokkos port. In that executable,
+one flag for each routine selects the Fortran or the Kokkos code. `--ww4` builds WAVEWATCH IV from
+its fork, and it stops with exit code 5 when the case needs a part that is not ported. chaceon is
+the fourth runtime, `--chaceon`, a flag that the script does not have yet ⚠. It runs WW3 rewritten
+in Rust, with no Fortran in the process. Its reference is MetOcean WW3 7.14, compiled separately.
+Today ww3-gpu pins NOAA WW3 `03adda91` and chaceon pins WW3 7.14.
+
+![The four runtimes. A solid arrow shows what builds or links what; a dashed arrow points to the
+run that must give the same bits. Drawn with Archify from
+`docs/archify/ww3-gpu-four-runtimes.json` [@ww3gpu].](figures/four-runtimes.pdf){width=100%}
 
 ## Evidence ladders {#sec:ladders}
 
@@ -267,11 +280,12 @@ parity: the `-O3` GIMPLE or the disassembly of both compilers.
 
 ## Next steps {#sec:next}
 
-The authors plan three steps:
+The authors plan four steps:
 
 1. Continue the development of ww3-gpu and chaceon on an NVIDIA RTX 4090.
 2. Run the selected regression tests on an NVIDIA H100 that UFSC owns.
-3. Publish version 1.0.0 of ww3-gpu and of chaceon before February 2027.
+3. Pin every runtime to WW3 7.14.
+4. Publish version 1.0.0 of ww3-gpu and of chaceon before February 2027.
 
 These steps are plans, not results ⚠. The first author supervises each GPU run, as the rules of
 ww3-gpu require.
