@@ -90,7 +90,7 @@ that can fail on `main` runs on the pull request first.
 | `just notes <research>` | the slip box keeps its rules: front matter, ids, links, the index | `.md / quality` |
 | `just reuse` | every file has a licence and a copyright in `REUSE.toml` | `.md / quality` |
 | `just overrides` | each research overrides the root only as `OVERRIDE_CONFIG.toml` allows, and its licence is the one `REUSE.toml` gives it | `.md / quality` |
-| `just citation <research> --check` | the record's metadata is valid and names a licence; `.zenodo.json` and `CITATION.cff` are what it makes | `.md / quality` |
+| `just citation --check` | every research's record metadata is valid and names a licence; `.zenodo.json` and `CITATION.cff` are what the research released next makes | `.md / quality` |
 | `just doi <research>` | the DOI of a released research is in every place a reader or an index looks | `.md / quality`, and `pdf / build` for the PDF |
 | `just pages` | every research's site: the generator's tests, the site's tests, the build | `site / build`; `site / deploy` publishes from `main` |
 
@@ -117,6 +117,7 @@ workflow publishes it with the research's PDF. marola-bench's record was made fr
 fork, `h0ffmann/marola-research`, where Zenodo's switch is on; its next version is cut there too.
 Zenodo did not keep `access_right: closed` for a GitHub release, and it took the licence that
 GitHub showed for the repository: read `marola-bench/journal/` before the next release. `.zenodo.json` at the root is the record's
-metadata and must equal `<research>/zenodo.json`; a pull request copies it before the release of
-another research. Zenodo gives one concept DOI to a repository, so a second research that needs
+metadata and must equal `<research>/zenodo.json` of the research released next; a pull request
+copies it before the release of another research, and `just citation --check` (no research)
+checks the root against the one it copies. Zenodo gives one concept DOI to a repository, so a second research that needs
 its own concept DOI needs its own repository or its own deposit: ask the owner first.

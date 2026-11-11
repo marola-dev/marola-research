@@ -17,6 +17,7 @@ researches:
 # <research>/paper/logos.tsv under the title. A pandoc warning stops it.
 paper research:
     {{nix}} --command just _paper {{research}} "{{research}}/{{research}}.pdf"
+    [ ! -f "{{research}}/paper/paper.pt-BR.md" ] || {{nix}} --command just _paper {{research}} "{{research}}/{{research}}.pt-BR.pdf" paper.pt-BR.md
 
 # Render <research>/paper/design-prop.preprint.md, the design in pictures, to
 # <research>/design-prop.preprint.pdf. pandoc turns its SVG figures into PDF with rsvg-convert.
@@ -86,6 +87,15 @@ _current research:
       || { echo "current: {{research}}/{{research}}.pdf was not made from this text; run just paper {{research}} and commit it" >&2; exit 1; }
     @echo "current: {{research}}/{{research}}.pdf is the one its text makes"
     just _current_preprint {{research}}
+    just _current_ptbr {{research}}
+
+# A research with a Portuguese edition (paper/paper.pt-BR.md) commits its PDF, and it too is the
+# one its text makes. `just paper` renders it beside the English one.
+_current_ptbr research:
+    [ ! -f "{{research}}/paper/paper.pt-BR.md" ] || [ -f "{{research}}/{{research}}.pt-BR.pdf" ] || { echo "current: {{research}}/{{research}}.pt-BR.pdf is not committed; run just paper {{research}}" >&2; exit 1; }
+    [ ! -f "{{research}}/paper/paper.pt-BR.md" ] || just _paper {{research}} "build/{{research}}/{{research}}.pt-BR.pdf" paper.pt-BR.md
+    [ ! -f "{{research}}/paper/paper.pt-BR.md" ] || diff <(pdftotext "{{research}}/{{research}}.pt-BR.pdf" -) <(pdftotext "build/{{research}}/{{research}}.pt-BR.pdf" -) > /dev/null \
+      || { echo "current: {{research}}/{{research}}.pt-BR.pdf was not made from this text; run just paper {{research}} and commit it" >&2; exit 1; }
 
 # A research with a preprint commits its PDF, and it too is the one its text makes.
 _current_preprint research:
@@ -112,8 +122,10 @@ release research version *args:
 
 # Write `.zenodo.json` and `CITATION.cff` from <research>/zenodo.json and <research>/doi.tsv.
 # `just citation <research> --check` fails when either is stale.
-citation research *args:
-    python3 scripts/citation.py {{research}} {{args}}
+# `just citation --check` validates every research and checks the root files against the one
+# they copy: the research released next.
+citation *args:
+    python3 scripts/citation.py {{args}}
 
 # The DOI of a released research is in every place a reader or an index looks for it.
 doi research:

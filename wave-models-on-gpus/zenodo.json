@@ -1,0 +1,67 @@
+{
+  "title": "Wave models on GPUs: C++/Kokkos and Rust ports of WAVEWATCH III that must give the Fortran's bits",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "description": "<p>A preprint, v0, not peer reviewed. It claims no speed-up.</p><p>The project exists to support Ondas &amp; Ventos (https://ondaseventos.ufsc.br/), the operational WAVEWATCH III forecast that LabECO/UFSC runs for ReNOMO, which must run the wave model at each cycle and plans to force it with several wind models.</p><p>We report two ports of the WAVEWATCH III (WW3) spectral wave model. Coding agents wrote both ports, and both ports have one acceptance rule: the port must give the same bits as the Fortran. A tolerance is a diagnostic, never the verdict. <em>ww3-gpu</em> keeps WW3, and the Fortran calls C++ written with Kokkos, behind one run-time flag for each routine. Its reference is the Fortran path of the same executable. <em>chaceon</em> replaces WW3 with Rust, compiled for the CPU, for SPIR-V (rust-gpu) and for PTX (Rust-CUDA). No Fortran runs in its process, and its reference is a WW3 that is compiled separately. ww3-gpu ports the discrete interaction approximation (DIA) of the four-wave transfer. On the CPU, it is byte-identical on all 100 serial and 25 OpenMP entries of the WW3 regression matrix that select it. The DIA takes 48.4 % of single-thread self time on a case of 9 520 points. chaceon runs ww3_grid, ww3_strt, ww3_prep and ww3_shel without Fortran, and 96 output files are byte-identical to the reference. Neither port has run the whole model on a real GPU. We compare how each project defines and checks its evidence.</p><p>The record holds the English paper and its edition in Brazilian Portuguese (Português Técnico Controlado). Source: <a href=\"https://github.com/marola-dev/marola-research/tree/main/wave-models-on-gpus\">marola-research, wave-models-on-gpus</a>.</p>",
+  "creators": [
+    {
+      "name": "Hoffmann, Matheus",
+      "affiliation": "Escola Politécnica, Universidade Federal do Rio de Janeiro",
+      "orcid": "0009-0009-1056-7661"
+    },
+    {
+      "name": "Guimarães, Pedro Veras",
+      "affiliation": "LabECO, Departamento de Engenharia Mecânica, Universidade Federal de Santa Catarina",
+      "orcid": "0000-0002-1686-4722"
+    },
+    {
+      "name": "Cruz, Pedro",
+      "affiliation": "Grupo de Teleinformática e Automação (GTA), DEL, Escola Politécnica, Universidade Federal do Rio de Janeiro",
+      "orcid": "0000-0002-2019-133X"
+    }
+  ],
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "language": "eng",
+  "keywords": [
+    "WAVEWATCH III",
+    "bit-for-bit reproducibility",
+    "Kokkos",
+    "Rust",
+    "GPU porting",
+    "coding agents",
+    "spectral wave model",
+    "discrete interaction approximation"
+  ],
+  "notes": "Not peer reviewed. Pedro Veras Guimarães is the co-advisor and Pedro Cruz the advisor of the first author.",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/marola-dev/marola-research",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.23221351",
+      "relation": "cites",
+      "scheme": "doi",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "https://github.com/h0ffmann/chaceon",
+      "relation": "cites",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.48550/arXiv.2606.11356",
+      "relation": "cites",
+      "scheme": "doi",
+      "resource_type": "publication-preprint"
+    },
+    {
+      "identifier": "10.25923/h7j3-1h25",
+      "relation": "cites",
+      "scheme": "doi",
+      "resource_type": "publication-report"
+    }
+  ]
+}

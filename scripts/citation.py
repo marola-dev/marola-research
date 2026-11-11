@@ -3,6 +3,8 @@
 
     python3 scripts/citation.py <research>            # validate, write CITATION.cff
     python3 scripts/citation.py <research> --check    # validate; exit 1 if anything is stale
+    python3 scripts/citation.py --check               # validate every research; check the root
+                                                      # files against the one they copy
     python3 scripts/citation.py --self-test
 
 `<research>/zenodo.json` is the one citation file edited by hand. Two files are copies of it and
@@ -11,6 +13,8 @@ must never differ from what it makes:
     byte-for-byte copy.
   - `CITATION.cff` at the root: GitHub's "Cite this repository" reads only that one. It is
     generated here, with the DOI of `<research>/doi.tsv`.
+The root files belong to one research at a time: the one released next. CI runs the form with
+no research, so a second research's `zenodo.json` is validated without failing the check.
 
 Three rules come from a release that went wrong (marola-bench/journal/, "the first record came
 out open"):
@@ -67,6 +71,12 @@ def dois(research: str) -> dict:
     return {r[0]: r[1] for r in rows if len(r) == 2}
 
 
+def message(meta: dict) -> str:
+    if meta["license"] == "other-closed":
+        return "All rights reserved. Read it and cite it; do not copy or share it. See REUSE.md."
+    return f"Cite it by its DOI. Licence: {meta['license']}."
+
+
 def quote(s: str) -> str:
     return '"' + s.replace("\\", "\\\\").replace('"', '\\"') + '"'
 
@@ -75,7 +85,7 @@ def cff(meta: dict, research: str, ids: dict) -> str:
     lines = [
         f"# Generated from {research}/zenodo.json and {research}/doi.tsv by scripts/citation.py; do not edit.",
         "cff-version: 1.2.0",
-        'message: "All rights reserved. Read it and cite it; do not copy or share it. See REUSE.md."',
+        "message: " + quote(message(meta)),
         "type: generic",
         "title: " + quote(meta["title"]),
         "authors:",
@@ -115,15 +125,34 @@ def self_test() -> int:
     text = cff(good, "r", {"doi": "10.5281/zenodo.1", "version": "v0.1.0", "released": "2026-10-13"})
     assert "doi: 10.5281/zenodo.1" in text and 'version: "v0.1.0"' in text and "date-released: 2026-10-13" in text, text
     assert "doi:" not in cff(good, "r", {})
+    assert "All rights reserved" in text
+    assert "Licence: cc-by-4.0" in cff(dict(good, license="cc-by-4.0"), "r", {})
     assert orcid_ok("0000-0002-1825-0097") and not orcid_ok("0000-0002-1825-0098")
     print("citation: self-test ok", file=sys.stderr)
     return 0
+
+
+def check_root() -> int:
+    sources = sorted(ROOT.glob("*/zenodo.json"))
+    bad = 0
+    for s in sources:
+        for e in errors(json.loads(s.read_text())):
+            print(f"citation: {s.parent.name}/zenodo.json: {e}", file=sys.stderr)
+            bad = 1
+    root = ROOT / ".zenodo.json"
+    owner = [s.parent.name for s in sources if root.exists() and root.read_bytes() == s.read_bytes()]
+    if not owner:
+        print("citation: .zenodo.json is no research's zenodo.json; run `just citation <research>`", file=sys.stderr)
+        return 1
+    return main([owner[0], "--check"]) or bad
 
 
 def main(argv: list) -> int:
     if "--self-test" in argv:
         return self_test()
     names = [a for a in argv if not a.startswith("--")]
+    if not names and "--check" in argv:
+        return check_root()
     if len(names) != 1:
         print("citation: usage: scripts/citation.py <research> [--check]", file=sys.stderr)
         return 1

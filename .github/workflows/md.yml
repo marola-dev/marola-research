@@ -27,7 +27,7 @@ jobs:
       - name: the citation files are what each research's metadata makes
         run: |
           python3 scripts/citation.py --self-test
-          for f in */zenodo.json; do python3 scripts/citation.py "${f%%/*}" --check; done
+          python3 scripts/citation.py --check
       - name: the DOI of each released research is in every place
         run: for f in */doi.tsv; do scripts/doi-check.sh "${f%%/*}"; done
       - name: each research overrides the root only as OVERRIDE_CONFIG.toml allows
