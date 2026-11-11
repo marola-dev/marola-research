@@ -1,12 +1,12 @@
 ---
-title: "Reference log for two-ports"
+title: "Reference log for wave-models-on-gpus"
 status: draft
 date: 2026-11-11
 related: [paper.md, paper.pt-BR.md, refs.bib]
 style: reference
 ---
 
-# Reference log for two-ports
+# Reference log for wave-models-on-gpus
 
 Every entry of [`refs.bib`](refs.bib) has a row here. Both editions of the paper cite the same
 entries. For each one, on the date of record, the record was read: the registry's record of a

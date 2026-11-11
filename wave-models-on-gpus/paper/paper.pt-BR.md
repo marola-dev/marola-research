@@ -1,5 +1,5 @@
 ---
-title: "Uma regra, duas linguagens"
+title: "Modelos de ondas em GPUs"
 subtitle: "Portes do WAVEWATCH III em C++/Kokkos e em Rust que precisam dar os bits do Fortran"
 author:
   - "Matheus Hoffmann"
@@ -45,11 +45,11 @@ related: [REFERENCES.md, refs.bib, paper.md]
 style: research
 ---
 
-# Uma regra, duas linguagens
+# Modelos de ondas em GPUs
 
-> **Como citar.** Hoffmann, M., Guimarães, P. V. e Cruz, P. (2026). *One rule, two languages:
+> **Como citar.** Hoffmann, M., Guimarães, P. V. e Cruz, P. (2026). *Wave models on GPUs:
 > C++/Kokkos and Rust ports of WAVEWATCH III that must give the Fortran's bits*. Preprint, v0,
-> sem revisão por pares. marola-research, `two-ports`. O DOI é dado quando o registro for
+> sem revisão por pares. marola-research, `wave-models-on-gpus`. O DOI é dado quando o registro for
 > criado.
 >
 > **Autores.** Matheus Hoffmann, Escola Politécnica, UFRJ, ORCID
@@ -61,7 +61,7 @@ style: research
 >
 > **Origem.** Este texto é a edição em Português Técnico Controlado do preprint do
 > h0ffmann/ww3-gpu, `pubs/preprint/` em
-> [`26b84f9`](https://github.com/h0ffmann/ww3-gpu/tree/26b84f9/pubs/preprint). O texto
+> [`767556b`](https://github.com/h0ffmann/ww3-gpu/tree/767556b/pubs/preprint). O texto
 > de referência é a edição em inglês, [`paper.md`](paper.md).
 
 `\setcounter{section}{-1}`{=latex}

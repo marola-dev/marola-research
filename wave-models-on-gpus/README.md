@@ -1,12 +1,12 @@
-# two-ports
+# wave-models-on-gpus
 
-Two ports of WAVEWATCH III (WW3) written by coding agents, ww3-gpu in C++/Kokkos and chaceon in
-Rust, and the one rule they share: the port gives the Fortran's bits. A short preprint compares
-how each project defines and checks its evidence.
+*Wave models on GPUs*, a preprint. Two ports of WAVEWATCH III (WW3) written by coding agents, ww3-gpu in C++/Kokkos and chaceon in
+Rust, and the one rule they share: the port gives the Fortran's bits. It compares how each
+project defines and checks its evidence.
 
-- **The paper:** [`two-ports.pdf`](two-ports.pdf), rendered from
+- **The paper:** [`wave-models-on-gpus.pdf`](wave-models-on-gpus.pdf), rendered from
   [`paper/paper.md`](paper/paper.md). A preprint, v0, not peer reviewed. It claims no speed-up.
-- **The Portuguese edition:** [`two-ports.pt-BR.pdf`](two-ports.pt-BR.pdf), rendered from
+- **The Portuguese edition:** [`wave-models-on-gpus.pt-BR.pdf`](wave-models-on-gpus.pt-BR.pdf), rendered from
   [`paper/paper.pt-BR.md`](paper/paper.pt-BR.md), in Português Técnico Controlado
   ([kayquer/portugues-tecnico-controlado](https://github.com/kayquer/portugues-tecnico-controlado)
   at `8938f58`, level `descritivo`).
@@ -14,7 +14,7 @@ how each project defines and checks its evidence.
   the first author; Pedro Cruz (GTA, UFRJ), advisor of the first author. Their ORCIDs are in
   [`zenodo.json`](zenodo.json) and in the paper.
 - **Where it comes from:** h0ffmann/ww3-gpu, `pubs/preprint/` at
-  [`26b84f9`](https://github.com/h0ffmann/ww3-gpu/tree/26b84f9/pubs/preprint), which builds the
+  [`767556b`](https://github.com/h0ffmann/ww3-gpu/tree/767556b/pubs/preprint), which builds the
   same prose with h0ffmann/closed-source's template. This directory renders it in this
   repository's format.
 - **The repositories:** [ww3-gpu](https://github.com/h0ffmann/ww3-gpu),

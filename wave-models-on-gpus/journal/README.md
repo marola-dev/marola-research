@@ -1,4 +1,4 @@
-# Journal of two-ports
+# Journal of wave-models-on-gpus
 
 One entry for each challenge met. [`NOTES.md`](../../NOTES.md) has the rules.
 

@@ -35,7 +35,7 @@ Each research is numbered as a marola experiment, in the order it was opened.
 | 002 | [marola-gpt](#marola-gpt-its-base-and-its-corpus) | a LoRA adapter over Tucano-2b4, on marola's ocean corpus | 0.1.0 not published; no DOI |
 | 003 | [ww3-gpu](#ww3-gpu-the-dia-on-a-gpu-without-changing-the-answer) | WAVEWATCH III in C++20/Kokkos, bit for bit with the Fortran | 20.12 % translated, [DOI](https://doi.org/10.5281/zenodo.23221351) |
 | 004 | [ptbr-writer](#ptbr-writer-technical-writing-in-brazilian-portuguese-for-agents) | a Claude Code plugin for technical writing in Brazilian Portuguese | v0.1.0 released; no paper, no DOI |
-| 005 | [two-ports](#two-ports-one-rule-two-languages) | a preprint on the Kokkos and Rust ports of WAVEWATCH III, in English and in pt-BR | a preprint, v0, draft; no DOI yet |
+| 005 | [wave-models-on-gpus](#wave-models-on-gpus) | *Wave models on GPUs*, a preprint on the Kokkos and Rust ports of WAVEWATCH III, in English and in pt-BR | a preprint, v0, draft; no DOI yet |
 
 Each experiment is `marola-experiment-NNN`. Its block below has its links, its status and its
 details.
@@ -281,16 +281,16 @@ loaded into other people's context.
 
 **Cite.** ptbr-writer has no DOI yet. Cite the repository at its release tag, and the PTC.
 
-### two-ports: one rule, two languages
+### Wave models on GPUs
 
-- **Experiment:** `marola-experiment-005`, in this repository: [`two-ports/`](two-ports/README.md)
+- **Experiment:** `marola-experiment-005`, in this repository: [`wave-models-on-gpus/`](wave-models-on-gpus/README.md)
 - **What it is:** a short preprint on two ports of WAVEWATCH III written by coding agents,
   ww3-gpu (C++/Kokkos) and chaceon (Rust), and the rule they share: the Fortran's bits
 - **Authors:** Matheus Hoffmann; Pedro Veras Guimarães (LabECO, UFSC) and Pedro Cruz (GTA, UFRJ),
   his co-advisor and advisor
-- **Paper:** [PDF](two-ports/two-ports.pdf), [source](two-ports/paper/paper.md); in Português
-  Técnico Controlado, [PDF](two-ports/two-ports.pt-BR.pdf),
-  [source](two-ports/paper/paper.pt-BR.md)
+- **Paper:** [PDF](wave-models-on-gpus/wave-models-on-gpus.pdf), [source](wave-models-on-gpus/paper/paper.md); in Português
+  Técnico Controlado, [PDF](wave-models-on-gpus/wave-models-on-gpus.pt-BR.pdf),
+  [source](wave-models-on-gpus/paper/paper.pt-BR.md)
 - **Site:** none yet
 - **Status:** a preprint, v0, draft, not peer reviewed. No DOI yet: the root's `.zenodo.json`
   and `CITATION.cff` describe it, so it is the next record to be minted

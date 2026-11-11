@@ -36,7 +36,7 @@ research validates every `zenodo.json` and checks the root files against the one
 
 ## Result
 
-`.zenodo.json` and `CITATION.cff` describe two-ports. How the owner mints it, a new deposit or a
+`.zenodo.json` and `CITATION.cff` describe wave-models-on-gpus. How the owner mints it, a new deposit or a
 GitHub release, is his choice; the pull request says what each one does to the concept DOI.
 
 ## Lessons

@@ -1,5 +1,5 @@
 ---
-title: "One rule, two languages"
+title: "Wave models on GPUs"
 subtitle: "C++/Kokkos and Rust ports of WAVEWATCH III that must give the Fortran's bits"
 author:
   - "Matheus Hoffmann"
@@ -31,15 +31,15 @@ keywords:
   - GPU porting
   - coding agents
 lang: en-US
-related: [REFERENCES.md, refs.bib, ../README.md, ../../.claude/skills/ouro-paper/SKILL.md, "https://github.com/h0ffmann/ww3-gpu/tree/26b84f9/pubs/preprint"]
+related: [REFERENCES.md, refs.bib, ../README.md, ../../.claude/skills/ouro-paper/SKILL.md, "https://github.com/h0ffmann/ww3-gpu/tree/767556b/pubs/preprint"]
 style: research
 ---
 
-# One rule, two languages
+# Wave models on GPUs
 
-> **Cite this as.** Hoffmann, M., Guimarães, P. V. and Cruz, P. (2026). *One rule, two
-> languages: C++/Kokkos and Rust ports of WAVEWATCH III that must give the Fortran's bits*.
-> Preprint, v0, not peer reviewed. marola-research, `two-ports`. The DOI is given when the
+> **Cite this as.** Hoffmann, M., Guimarães, P. V. and Cruz, P. (2026). *Wave models on GPUs:
+> C++/Kokkos and Rust ports of WAVEWATCH III that must give the Fortran's bits*.
+> Preprint, v0, not peer reviewed. marola-research, `wave-models-on-gpus`. The DOI is given when the
 > record is minted.
 >
 > **Authors.** Matheus Hoffmann, Escola Politécnica, UFRJ, ORCID
@@ -50,7 +50,7 @@ style: research
 > [0000-0002-2019-133X](https://orcid.org/0000-0002-2019-133X).
 >
 > **Where it comes from.** The text is the preprint of h0ffmann/ww3-gpu, `pubs/preprint/` at
-> [`26b84f9`](https://github.com/h0ffmann/ww3-gpu/tree/26b84f9/pubs/preprint), in this
+> [`767556b`](https://github.com/h0ffmann/ww3-gpu/tree/767556b/pubs/preprint), in this
 > repository's format. A Portuguese edition in Português Técnico Controlado is
 > [`paper.pt-BR.md`](paper.pt-BR.md).
 
