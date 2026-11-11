@@ -7,7 +7,7 @@
 <sub>since 2026 · the science of <a href="https://github.com/marola-dev/marola">marola</a> · <a href="https://marola-dev.github.io/marola-research/">the sites</a> · <a href="#researches">researches</a> · <a href="#a-new-paper-explained-like-you-are-five">a new paper</a> · <a href="#discipline-from-the-root-freedom-in-a-research">overrides</a> · <a href="#cite">cite</a></sub>
 
 [![since 2026](https://img.shields.io/badge/since-2026-1682D4?style=flat-square)](#history)
-[![experiments: 4](https://img.shields.io/badge/experiments-4-F2B705?style=flat-square)](#researches)
+[![experiments: 5](https://img.shields.io/badge/experiments-5-F2B705?style=flat-square)](#researches)
 [![marola-bench: DOI 10.5281/zenodo.23352633](https://img.shields.io/badge/marola--bench-10.5281%2Fzenodo.23352633-1682D4?style=flat-square)](https://doi.org/10.5281/zenodo.23352633)
 [![pdf](https://img.shields.io/github/actions/workflow/status/marola-dev/marola-research/pdf.yml?branch=main&label=pdf&style=flat-square)](https://github.com/marola-dev/marola-research/actions/workflows/pdf.yml)
 [![.md](https://img.shields.io/github/actions/workflow/status/marola-dev/marola-research/md.yml?branch=main&label=.md&style=flat-square)](https://github.com/marola-dev/marola-research/actions/workflows/md.yml)
@@ -35,6 +35,7 @@ Each research is numbered as a marola experiment, in the order it was opened.
 | 002 | [marola-gpt](#marola-gpt-its-base-and-its-corpus) | a LoRA adapter over Tucano-2b4, on marola's ocean corpus | 0.1.0 not published; no DOI |
 | 003 | [ww3-gpu](#ww3-gpu-the-dia-on-a-gpu-without-changing-the-answer) | WAVEWATCH III in C++20/Kokkos, bit for bit with the Fortran | 20.12 % translated, [DOI](https://doi.org/10.5281/zenodo.23221351) |
 | 004 | [ptbr-writer](#ptbr-writer-technical-writing-in-brazilian-portuguese-for-agents) | a Claude Code plugin for technical writing in Brazilian Portuguese | v0.1.0 released; no paper, no DOI |
+| 005 | [two-ports](#two-ports-one-rule-two-languages) | a preprint on the Kokkos and Rust ports of WAVEWATCH III, in English and in pt-BR | a preprint, v0, draft; no DOI yet |
 
 Each experiment is `marola-experiment-NNN`. Its block below has its links, its status and its
 details.
@@ -279,6 +280,20 @@ loaded into other people's context.
 </details>
 
 **Cite.** ptbr-writer has no DOI yet. Cite the repository at its release tag, and the PTC.
+
+### two-ports: one rule, two languages
+
+- **Experiment:** `marola-experiment-005`, in this repository: [`two-ports/`](two-ports/README.md)
+- **What it is:** a short preprint on two ports of WAVEWATCH III written by coding agents,
+  ww3-gpu (C++/Kokkos) and chaceon (Rust), and the rule they share: the Fortran's bits
+- **Authors:** Matheus Hoffmann; Pedro Veras Guimarães (LabECO, UFSC) and Pedro Cruz (GTA, UFRJ),
+  his co-advisor and advisor
+- **Paper:** [PDF](two-ports/two-ports.pdf), [source](two-ports/paper/paper.md); in Português
+  Técnico Controlado, [PDF](two-ports/two-ports.pt-BR.pdf),
+  [source](two-ports/paper/paper.pt-BR.md)
+- **Site:** none yet
+- **Status:** a preprint, v0, draft, not peer reviewed. No DOI yet: the root's `.zenodo.json`
+  and `CITATION.cff` describe it, so it is the next record to be minted
 
 Not a research: [`chamada/`](chamada/README.md), *Marola: Chamada para CONTRIBUIÇÃO e
 PUBLICAÇÃO* ([PDF](chamada/chamada.pdf), at most 5 pages). It is a call in easy Brazilian
