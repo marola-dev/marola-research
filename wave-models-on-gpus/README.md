@@ -14,7 +14,7 @@ project defines and checks its evidence.
   the first author; Pedro Cruz (GTA, UFRJ), advisor of the first author. Their ORCIDs are in
   [`zenodo.json`](zenodo.json) and in the paper.
 - **Where it comes from:** h0ffmann/ww3-gpu, `pubs/preprint/` at
-  [`935495e`](https://github.com/h0ffmann/ww3-gpu/tree/935495e/pubs/preprint), which builds the
+  [`e7996b3`](https://github.com/h0ffmann/ww3-gpu/tree/e7996b3/pubs/preprint), which builds the
   same prose with h0ffmann/closed-source's template. This directory renders it in this
   repository's format.
 - **The repositories:** [ww3-gpu](https://github.com/h0ffmann/ww3-gpu),

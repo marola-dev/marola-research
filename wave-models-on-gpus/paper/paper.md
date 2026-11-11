@@ -31,7 +31,7 @@ keywords:
   - GPU porting
   - coding agents
 lang: en-US
-related: [REFERENCES.md, refs.bib, ../README.md, ../../.claude/skills/ouro-paper/SKILL.md, "https://github.com/h0ffmann/ww3-gpu/tree/935495e/pubs/preprint"]
+related: [REFERENCES.md, refs.bib, ../README.md, ../../.claude/skills/ouro-paper/SKILL.md, "https://github.com/h0ffmann/ww3-gpu/tree/e7996b3/pubs/preprint"]
 style: research
 ---
 
@@ -50,7 +50,7 @@ style: research
 > [0000-0002-2019-133X](https://orcid.org/0000-0002-2019-133X).
 >
 > **Where it comes from.** The text is the preprint of h0ffmann/ww3-gpu, `pubs/preprint/` at
-> [`935495e`](https://github.com/h0ffmann/ww3-gpu/tree/935495e/pubs/preprint), in this
+> [`e7996b3`](https://github.com/h0ffmann/ww3-gpu/tree/e7996b3/pubs/preprint), in this
 > repository's format. A Portuguese edition in Português Técnico Controlado is
 > [`paper.pt-BR.md`](paper.pt-BR.md).
 
@@ -264,6 +264,17 @@ parity: the `-O3` GIMPLE or the disassembly of both compilers.
    yet. Until one does, a fixed tolerance judges a GPU run.
 4. The two references are different lines of WW3 (NOAA-EMC and MetOcean). Thus the comparison of
    the two ports is by routine name, not by source text. Both ledgers contain 85 routines.
+
+## Next steps {#sec:next}
+
+The authors plan three steps:
+
+1. Continue the development of ww3-gpu and chaceon on an NVIDIA RTX 4090.
+2. Run the selected regression tests on an NVIDIA H100 that UFSC owns.
+3. Publish version 1.0.0 of ww3-gpu and of chaceon before February 2027.
+
+These steps are plans, not results ⚠. The first author supervises each GPU run, as the rules of
+ww3-gpu require.
 
 ## Use of AI {#sec:ai}
 
